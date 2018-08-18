@@ -1,0 +1,11 @@
+{
+  "name": "time",
+  "version": "0.0.0",
+  "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
+  "license": "MIT",
+  "devDependencies": {
+    "@softwareventures/tslint-rules": "^0.2.2",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1"
+  }
+}
