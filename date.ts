@@ -43,3 +43,17 @@ export function validate(date: Date): void {
         throw new Error("Invalid date");
     }
 }
+
+/**
+ * Given the number of months since the reference date, returns the number of
+ * days since the reference date.
+ *
+ * The reference date is 1st January, 1 CE.
+ */
+export function monthsInDays(months: number): number {
+    return Math.floor(months * 365 / 12)
+        + Math.floor((months + 10) / 48)
+        - Math.floor((months + 10) / 1200)
+        + Math.floor((months + 10) / 4800)
+        + [0, 1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0][(12 + (months % 12)) % 12];
+}
