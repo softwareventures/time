@@ -1,8 +1,8 @@
 /** An abstract date, with no associated time zone. */
 export interface Date {
-    readonly day: number;
-    readonly month: number;
-    readonly year: number;
+    day: number;
+    month: number;
+    year: number;
 }
 
 export const JANUARY = 1;
@@ -33,12 +33,12 @@ export function daysInMonth(month: number, year: number): number {
     }
 }
 
-export function isValid(date: Date): boolean {
+export function isValid(date: Readonly<Date>): boolean {
     return date.month >= JANUARY && date.month <= DECEMBER
         && date.day >= 1 && date.day <= daysInMonth(date.month, date.year);
 }
 
-export function validate(date: Date): void {
+export function validate(date: Readonly<Date>): void {
     if (!isValid(date)) {
         throw new Error("Invalid date");
     }
