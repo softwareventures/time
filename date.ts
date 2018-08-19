@@ -17,3 +17,8 @@ export const SEPTEMBER = 9;
 export const OCTOBER = 10;
 export const NOVEMBER = 11;
 export const DECEMBER = 12;
+
+export function isLeapYear(year: number): boolean {
+    return (year % 4 === 0 && year % 100 !== 0)
+        || (year % 400 === 0);
+}
