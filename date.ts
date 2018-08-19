@@ -45,15 +45,20 @@ export function validate(date: Readonly<Date>): void {
 }
 
 /**
- * Given the number of months since the reference date, returns the number of
- * days since the reference date.
- *
- * The reference date is 1st January, 1 CE.
+ * Converts the specified date to a count of the number of days since the
+ * reference date of 1st January, 1 CE.
  */
-export function monthsInDays(months: number): number {
-    return Math.floor(months * 365 / 12)
-        + Math.floor((months + 10) / 48)
-        - Math.floor((months + 10) / 1200)
-        + Math.floor((months + 10) / 4800)
-        + [0, 1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0][(12 + (months % 12)) % 12];
+export function toReferenceDays(date: Partial<Readonly<Date>>): number {
+    const day = date.day == null ? 1 : date.day;
+    const month = date.month == null ? 1 : date.month;
+    const year = date.year == null ? 1 : date.year;
+
+    const referenceMonths = (year - 1) * 12 + month - 1;
+
+    return Math.floor(referenceMonths * 365 / 12)
+        + Math.floor((referenceMonths + 10) / 48)
+        - Math.floor((referenceMonths + 10) / 1200)
+        + Math.floor((referenceMonths + 10) / 4800)
+        + [0, 1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0][(12 + (referenceMonths % 12)) % 12]
+        + day - 1;
 }
