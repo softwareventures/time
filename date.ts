@@ -22,3 +22,13 @@ export function isLeapYear(year: number): boolean {
     return (year % 4 === 0 && year % 100 !== 0)
         || (year % 400 === 0);
 }
+
+export function daysInMonth(month: number, year: number): number {
+    if (month < JANUARY || month > DECEMBER) {
+        throw new Error("Invalid month");
+    } else if (month === FEBRUARY && isLeapYear(year)) {
+        return 29;
+    } else {
+        return [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
+    }
+}
