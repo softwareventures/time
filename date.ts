@@ -32,3 +32,14 @@ export function daysInMonth(month: number, year: number): number {
         return [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
     }
 }
+
+export function isValid(date: Date): boolean {
+    return date.month >= JANUARY && date.month <= DECEMBER
+        && date.day >= 1 && date.day <= daysInMonth(date.month, date.year);
+}
+
+export function validate(date: Date): void {
+    if (!isValid(date)) {
+        throw new Error("Invalid date");
+    }
+}
