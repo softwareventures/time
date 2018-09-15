@@ -291,9 +291,9 @@
   dependencies:
     arrify "^1.0.1"
 
-"@softwareventures/tslint-rules@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@softwareventures/tslint-rules/-/tslint-rules-0.3.1.tgz#6038764b3af2f40a8977143ceb57878e159b9fe2"
+"@softwareventures/tslint-rules@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@softwareventures/tslint-rules/-/tslint-rules-0.4.0.tgz#898fc78b33341a45295e03dd47d7dac8c0f78abd"
   dependencies:
     tslint-eslint-rules "^5.4.0"
 
