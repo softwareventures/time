@@ -4,7 +4,8 @@
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "license": "MIT",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "lint": "tslint --project ."
   },
   "devDependencies": {
     "@softwareventures/tslint-rules": "^0.3.1",
