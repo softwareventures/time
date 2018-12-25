@@ -1,5 +1,5 @@
 import test from "ava";
-import {toReferenceDays} from "./date";
+import {fromReferenceDays, toReferenceDays} from "./date";
 
 test("toReferenceDays({year: -400})", t => t.is(toReferenceDays({year: -400}), -146463));
 test("toReferenceDays({year: -100})", t => t.is(toReferenceDays({year: -100}), -36890));
@@ -99,3 +99,5 @@ test("toReferenceDays({month: 4800})", t => t.is(toReferenceDays({month: 4800}),
 test("toReferenceDays({month: 4801})", t => t.is(toReferenceDays({month: 4801}), 146097));
 test("toReferenceDays({month: 4802})", t => t.is(toReferenceDays({month: 4802}), 146128));
 test("toReferenceDays({month: 4803})", t => t.is(toReferenceDays({month: 4803}), 146156));
+
+test("fromReferenceDays(0)", t => t.deepEqual(fromReferenceDays(0), {year: 1, month: 1, day: 1}));

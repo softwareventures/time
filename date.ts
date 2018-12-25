@@ -1,4 +1,5 @@
 /** An abstract date, with no associated time zone. */
+
 export interface Date {
     day: number;
     month: number;
@@ -61,4 +62,23 @@ export function toReferenceDays(date: Partial<Readonly<Date>>): number {
         + Math.floor((referenceMonths + 10) / 4800)
         + [0, 1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0][(12 + (referenceMonths % 12)) % 12]
         + day - 1;
+}
+
+/**
+ *  Creates a date corresponding to the specified count of the number of days
+ *  since the reference date of 1st January, 1 CE.
+ */
+export function fromReferenceDays(referenceDays: number): Date {
+    const referenceMonths = Math.floor(referenceDays / 30.436875);
+    const year = Math.floor(referenceMonths / 12) + 1;
+    const month = referenceMonths % 12 + 1;
+    const day = referenceDays + 366
+        - year * 365
+        - Math.floor((referenceMonths + 10) / 4800)
+        + Math.floor((referenceMonths + 10) / 1200)
+        - Math.floor((referenceMonths + 10) / 48)
+        - Math.floor((referenceMonths + 10) / 12)
+        - [0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334][month];
+
+    return {day, month, year};
 }
