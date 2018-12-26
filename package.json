@@ -4,6 +4,7 @@
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "license": "MIT",
   "scripts": {
+    "prepare": "tsc",
     "test": "ava",
     "lint": "tslint --project ."
   },
