@@ -69,16 +69,54 @@ export function toReferenceDays(date: Partial<Readonly<Date>>): number {
  *  since the reference date of 1st January, 1 CE.
  */
 export function fromReferenceDays(referenceDays: number): Date {
-    const referenceMonths = Math.floor(referenceDays / 30.436875);
-    const year = Math.floor(referenceMonths / 12) + 1;
-    const month = referenceMonths % 12 + 1;
-    const day = referenceDays + 366
-        - year * 365
-        - Math.floor((referenceMonths + 10) / 4800)
-        + Math.floor((referenceMonths + 10) / 1200)
-        - Math.floor((referenceMonths + 10) / 48)
-        - Math.floor((referenceMonths + 10) / 12)
-        - [0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334][month];
+    const year = Math.floor((referenceDays + 366) / 365.2425);
+    const dayInYear = referenceDays - Math.floor((year - 1) * 365.2425) + 1;
+    const leapDay = Math.floor(year * 365.2425) - Math.floor((year - 1) * 365.2425) - 365;
+    let month: number;
+    let day: number;
+    if (dayInYear <= 181 + leapDay) {
+        if (dayInYear <= 90 + leapDay) {
+            if (dayInYear <= 31) {
+                month = 1;
+                day = dayInYear;
+            } else if (dayInYear <= 59 + leapDay) {
+                month = 2;
+                day = dayInYear - 31;
+            } else {
+                month = 3;
+                day = dayInYear - 59 - leapDay;
+            }
+        } else if (dayInYear <= 120 + leapDay) {
+            month = 4;
+            day = dayInYear - 90 - leapDay;
+        } else if (dayInYear <= 151 + leapDay) {
+            month = 5;
+            day = dayInYear - 120 - leapDay;
+        } else {
+            month = 6;
+            day = dayInYear - 151 - leapDay;
+        }
+    } else if (dayInYear <= 273 + leapDay) {
+        if (dayInYear <= 212 + leapDay) {
+            month = 7;
+            day = dayInYear - 181 - leapDay;
+        } else if (dayInYear <= 243 + leapDay) {
+            month = 8;
+            day = dayInYear - 212 - leapDay;
+        } else {
+            month = 9;
+            day = dayInYear - 243 - leapDay;
+        }
+    } else if (dayInYear <= 304 + leapDay) {
+        month = 10;
+        day = dayInYear - 273 - leapDay;
+    } else if (dayInYear <= 334 + leapDay) {
+        month = 11;
+        day = dayInYear - 304 - leapDay;
+    } else {
+        month = 12;
+        day = dayInYear - 334 - leapDay;
+    }
 
     return {day, month, year};
 }
