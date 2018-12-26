@@ -4,8 +4,10 @@
     "module": "commonjs",
     "removeComments": true,
     "importHelpers": true,
+    "inlineSources": true,
     "declaration": true,
     "downlevelIteration": true,
+    "sourceMap": true,
     "strict": true,
     "esModuleInterop": true
   }
