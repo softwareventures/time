@@ -70,8 +70,8 @@ export function toReferenceDays(date: Partial<Readonly<Date>>): number {
  */
 export function fromReferenceDays(referenceDays: number): Date {
     const year = Math.floor((referenceDays + 366) / 365.2425);
-    const dayInYear = referenceDays - Math.floor((year - 1) * 365.2425) + 1;
-    const leapDay = Math.floor(year * 365.2425) - Math.floor((year - 1) * 365.2425) - 365;
+    const dayInYear = referenceDays - Math.floor(year * 365.2425) + 366;
+    const leapDay = Math.floor((year + 1) * 365.2425) - Math.floor(year * 365.2425) - 365;
     let month: number;
     let day: number;
     if (dayInYear <= 181 + leapDay) {

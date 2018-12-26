@@ -174,3 +174,5 @@ test("fromReferenceDays(1095)", t => t.deepEqual(fromReferenceDays(1095), {year:
 test("fromReferenceDays(1125)", t => t.deepEqual(fromReferenceDays(1125), {year: 4, month: 1, day: 31}));
 test("fromReferenceDays(1126)", t => t.deepEqual(fromReferenceDays(1126), {year: 4, month: 2, day: 1}));
 test("fromReferenceDays(1153)", t => t.deepEqual(fromReferenceDays(1153), {year: 4, month: 2, day: 28}));
+test("fromReferenceDays(1154)", t => t.deepEqual(fromReferenceDays(1154), {year: 4, month: 2, day: 29}));
+test("fromReferenceDays(1155)", t => t.deepEqual(fromReferenceDays(1155), {year: 4, month: 3, day: 1}));
