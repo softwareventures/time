@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "tsc",
-    "test": "ava",
+    "test": "tsc && ava",
     "lint": "tslint --project ."
   },
   "devDependencies": {
