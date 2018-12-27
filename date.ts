@@ -45,6 +45,10 @@ export function validate(date: Readonly<Date>): void {
     }
 }
 
+export function normalize(date: Readonly<Date>): Date {
+    return fromReferenceDays(toReferenceDays(date));
+}
+
 /**
  * Converts the specified date to a count of the number of days since the
  * reference date of 1st January, 1 CE.
