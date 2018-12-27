@@ -69,53 +69,71 @@ export function toReferenceDays(date: Partial<Readonly<Date>>): number {
  *  since the reference date of 1st January, 1 CE.
  */
 export function fromReferenceDays(referenceDays: number): Date {
-    const year = Math.floor((referenceDays + 366) / 365.2425);
-    const dayInYear = referenceDays - Math.floor(year * 365.2425) + 366;
-    const leapDay = Math.floor((year + 1) * 365.2425) - Math.floor(year * 365.2425) - 365;
+    const quadricentennium = Math.floor((referenceDays + 366) / 146097);
+    const dayInQuadricentennium = (referenceDays + 366) - quadricentennium * 146097;
+    const centuryInQuadricentennium = dayInQuadricentennium === 0
+        ? 0
+        : Math.floor((dayInQuadricentennium - 1) / 36524);
+    const longCentury = centuryInQuadricentennium === 0;
+    const dayInCentury = dayInQuadricentennium - [0, 36525, 73049, 109573][centuryInQuadricentennium];
+    const quadrenniumInCentury = Math.floor((dayInCentury + Number(centuryInQuadricentennium !== 0)) / 1461);
+    const longQuadrennium = quadrenniumInCentury !== 0 || longCentury;
+    const dayInQuadrennium = dayInCentury - quadrenniumInCentury * 1461
+        + Number(quadrenniumInCentury !== 0 && !longCentury);
+    const yearInQuadrennium = dayInQuadrennium === 0
+        ? 0
+        : Math.floor((dayInQuadrennium - Number(longQuadrennium)) / 365);
+    const dayInYear = dayInQuadrennium - yearInQuadrennium * 365
+        - Number(yearInQuadrennium !== 0 && longQuadrennium);
+    const leapDay = Number(longQuadrennium && yearInQuadrennium === 0);
+
+    const year = quadricentennium * 400 + centuryInQuadricentennium * 100
+        + quadrenniumInCentury * 4 + yearInQuadrennium;
     let month: number;
     let day: number;
-    if (dayInYear <= 181 + leapDay) {
-        if (dayInYear <= 90 + leapDay) {
-            if (dayInYear <= 31) {
+
+    if (dayInYear < 181 + leapDay) {
+        if (dayInYear < 90 + leapDay) {
+            if (dayInYear < 31) {
                 month = 1;
-                day = dayInYear;
-            } else if (dayInYear <= 59 + leapDay) {
+                day = dayInYear + 1;
+            } else if (dayInYear < 59 + leapDay) {
                 month = 2;
-                day = dayInYear - 31;
+                day = dayInYear - 30;
             } else {
                 month = 3;
-                day = dayInYear - 59 - leapDay;
+                day = dayInYear - 58 - leapDay;
             }
-        } else if (dayInYear <= 120 + leapDay) {
+        } else if (dayInYear < 120 + leapDay) {
             month = 4;
-            day = dayInYear - 90 - leapDay;
-        } else if (dayInYear <= 151 + leapDay) {
+            day = dayInYear - 89 - leapDay;
+        } else if (dayInYear < 151 + leapDay) {
             month = 5;
-            day = dayInYear - 120 - leapDay;
+            day = dayInYear - 119 - leapDay;
         } else {
             month = 6;
-            day = dayInYear - 151 - leapDay;
+            day = dayInYear - 150 - leapDay;
         }
-    } else if (dayInYear <= 273 + leapDay) {
-        if (dayInYear <= 212 + leapDay) {
+    } else if (dayInYear < 273 + leapDay) {
+        if (dayInYear < 212 + leapDay) {
             month = 7;
-            day = dayInYear - 181 - leapDay;
-        } else if (dayInYear <= 243 + leapDay) {
+            day = dayInYear - 180 - leapDay;
+        } else if (dayInYear < 243 + leapDay) {
             month = 8;
-            day = dayInYear - 212 - leapDay;
+            day = dayInYear - 211 - leapDay;
         } else {
             month = 9;
-            day = dayInYear - 243 - leapDay;
+            day = dayInYear - 242 - leapDay;
         }
-    } else if (dayInYear <= 304 + leapDay) {
+    } else if (dayInYear < 304 + leapDay) {
         month = 10;
-        day = dayInYear - 273 - leapDay;
-    } else if (dayInYear <= 334 + leapDay) {
+        day = dayInYear - 272 - leapDay;
+    } else if (dayInYear < 334 + leapDay) {
         month = 11;
-        day = dayInYear - 304 - leapDay;
+        day = dayInYear - 303 - leapDay;
     } else {
         month = 12;
-        day = dayInYear - 334 - leapDay;
+        day = dayInYear - 333 - leapDay;
     }
 
     return {day, month, year};
