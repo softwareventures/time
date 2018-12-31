@@ -9,7 +9,7 @@
     "TypeScript"
   ],
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": "htps://github.com/softwareventures/time/issues",
   "homepage": "https://github.com/softwareventures/time",
   "scripts": {
