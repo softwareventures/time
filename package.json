@@ -13,9 +13,8 @@
   "bugs": "htps://github.com/softwareventures/time/issues",
   "homepage": "https://github.com/softwareventures/time",
   "scripts": {
-    "prepare": "tsc",
-    "test": "tsc && ava",
-    "lint": "tslint --project ."
+    "prepare": "tslint --project . && tsc",
+    "test": "tsc && ava"
   },
   "devDependencies": {
     "@softwareventures/tslint-rules": "^0.5.2",
