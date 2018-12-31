@@ -10,7 +10,7 @@
   ],
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "license": "ISC",
-  "bugs": "htps://github.com/softwareventures/time/issues",
+  "bugs": "https://github.com/softwareventures/time/issues",
   "homepage": "https://github.com/softwareventures/time",
   "scripts": {
     "prepare": "tslint --project . && tsc",
