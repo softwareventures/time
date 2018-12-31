@@ -1,5 +1,5 @@
 {
-  "name": "time",
+  "name": "@softwareventures/time",
   "version": "0.0.0",
   "description": "Time and date library",
   "repository": "github:softwareventures/time",
