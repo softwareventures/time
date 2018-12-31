@@ -5,7 +5,8 @@
   "repository": "github:softwareventures/time",
   "keywords": [
     "time",
-    "date"
+    "date",
+    "TypeScript"
   ],
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "license": "MIT",
