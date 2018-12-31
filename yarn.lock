@@ -324,6 +324,11 @@
   dependencies:
     arrify "^1.0.1"
 
+"@softwareventures/tsconfig@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@softwareventures/tsconfig/-/tsconfig-0.1.0.tgz#5aeeb69fcbb51efed4f45fc1667d2b69f37f9d80"
+  integrity sha512-2DUNzf0/8fX22ofIVL/43oV1A9CAYzEeHmlKl2wtjXolslvuQGzXvaKirgU9AwExlGr+n8UvOtANjjc01O2Qmg==
+
 "@softwareventures/tslint-rules@^0.5.2":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@softwareventures/tslint-rules/-/tslint-rules-0.5.2.tgz#c630e66179e879d2392824e3abed0880342bf375"

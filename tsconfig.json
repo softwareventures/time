@@ -1,15 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["es5"],
-    "removeComments": true,
-    "importHelpers": true,
-    "inlineSources": true,
-    "declaration": true,
-    "downlevelIteration": true,
-    "sourceMap": true,
-    "strict": true,
-    "esModuleInterop": true
-  }
+  "extends": "@softwareventures/tsconfig"
 }
