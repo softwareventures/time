@@ -1,8 +1,16 @@
 {
   "name": "time",
   "version": "0.0.0",
+  "description": "Time and date library",
+  "repository": "github:softwareventures/time",
+  "keywords": [
+    "time",
+    "date"
+  ],
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "license": "MIT",
+  "bugs": "htps://github.com/softwareventures/time/issues",
+  "homepage": "https://github.com/softwareventures/time",
   "scripts": {
     "prepare": "tsc",
     "test": "tsc && ava",
