@@ -16,6 +16,7 @@
     "prepare": "tslint --project . && tsc",
     "test": "tsc && ava"
   },
+  "sideEffects": false,
   "devDependencies": {
     "@softwareventures/tslint-rules": "^0.5.2",
     "ava": "1.0.1",
