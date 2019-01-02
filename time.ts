@@ -5,6 +5,10 @@ export interface Time {
     seconds: number;
 }
 
+export function normalize(time: Readonly<Time>): Time {
+    return fromReferenceSeconds(toReferenceSeconds(time));
+}
+
 export function toReferenceSeconds(time: Readonly<Time>): number {
     return time.hours * 1440 + time.minutes * 60 + time.seconds;
 }
