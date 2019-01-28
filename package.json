@@ -21,10 +21,16 @@
     "@softwareventures/tsconfig": "1.0.0",
     "@softwareventures/tslint-rules": "0.6.4",
     "ava": "1.2.0",
+    "cz-conventional-changelog": "2.1.0",
     "tslint": "5.12.1",
     "typescript": "3.2.4"
   },
   "dependencies": {
     "tslib": "^1.9.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
