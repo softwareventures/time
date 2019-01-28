@@ -2,6 +2,8 @@
 /tsconfig.json
 /tslint.json
 /yarn.lock
+/.travis.yml
+/renovate.json
 yarn-error.log
 npm-debug.log
 *.ts
