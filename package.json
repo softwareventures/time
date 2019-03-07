@@ -13,8 +13,8 @@
   "bugs": "https://github.com/softwareventures/time/issues",
   "homepage": "https://github.com/softwareventures/time",
   "scripts": {
-    "prepare": "tslint --project . && tsc",
-    "test": "ava",
+    "prepare": "tsc",
+    "test": "tslint --project . && ava",
     "semantic-release": "semantic-release"
   },
   "sideEffects": false,
