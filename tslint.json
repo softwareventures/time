@@ -1,6 +1,3 @@
 {
-  "extends": "@softwareventures/tslint-rules",
-  "rules": {
-    "no-implicit-dependencies": [true, ["ava"]]
-  }
+  "extends": "@softwareventures/tslint-rules"
 }
