@@ -14,7 +14,7 @@
   "homepage": "https://github.com/softwareventures/time",
   "scripts": {
     "prepare": "tslint --project . && tsc",
-    "test": "tsc && ava",
+    "test": "ava",
     "semantic-release": "semantic-release"
   },
   "sideEffects": false,
@@ -28,11 +28,21 @@
     "typescript": "3.3.3333"
   },
   "dependencies": {
+    "ts-node": "^8.0.3",
     "tslib": "^1.9.3"
   },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   }
 }
