@@ -1,14 +1,10 @@
-import isFinite = require("is-finite");
+import {isNonNegativeFinite} from "./util";
 
 /** A length of time. */
 export interface Duration {
     hours: number;
     minutes: number;
     seconds: number;
-}
-
-function isNonNegativeFinite(value: number): boolean {
-    return isFinite(value) && value >= 0;
 }
 
 export function isValid(duration: Readonly<Partial<Duration>>): boolean {
