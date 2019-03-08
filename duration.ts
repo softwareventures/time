@@ -5,8 +5,11 @@ export interface Duration {
     seconds: number;
 }
 
-export function toSeconds(duration: Readonly<Duration>): number {
-    return duration.hours * 3600 + duration.minutes * 60 + duration.seconds;
+export function toSeconds(duration: Readonly<Partial<Duration>>): number {
+    const hours = duration.hours == null ? 0 : duration.hours;
+    const minutes = duration.minutes == null ? 0 : duration.minutes;
+    const seconds = duration.seconds == null ? 0 : duration.seconds;
+    return hours * 3600 + minutes * 60 + seconds;
 }
 
 export function fromSeconds(seconds: number): Duration {
