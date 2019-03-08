@@ -1,5 +1,5 @@
-import {isIntegerInRange, isNonNegativeFinite} from "./util";
 import isInteger = require("is-integer");
+import {isIntegerInRange, isNonNegativeFinite} from "./util";
 
 /** A length of time. */
 export interface Duration {
