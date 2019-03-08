@@ -1,5 +1,7 @@
-/** An abstract date, with no associated time zone. */
+import isInteger = require("is-integer");
+import {isIntegerInRange} from "./util";
 
+/** An abstract date, with no associated time zone. */
 export interface Date {
     day: number;
     month: number;
@@ -35,8 +37,9 @@ export function daysInMonth(month: number, year: number): number {
 }
 
 export function isValid(date: Readonly<Date>): boolean {
-    return date.month >= JANUARY && date.month <= DECEMBER
-        && date.day >= 1 && date.day <= daysInMonth(date.month, date.year);
+    return isInteger(date.year)
+        && isIntegerInRange(date.month, JANUARY, DECEMBER)
+        && isIntegerInRange(date.day, 1, daysInMonth(date.month, date.year));
 }
 
 export function validate(date: Readonly<Date>): void {
