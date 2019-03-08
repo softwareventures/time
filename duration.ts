@@ -49,3 +49,23 @@ export function fromSeconds(seconds: number): Duration {
     seconds -= minutes * 60;
     return {hours, minutes, seconds};
 }
+
+export function parsehhmmss(duration: string): Duration | null {
+    const matches = /^\s*(?:(?:([0-9]+):)?([0-9]+):)?([0-9]+(?:\.[0-9]*)?|\.[0-9]+)\s*$/.exec(duration);
+
+    if (matches == null) {
+        return null;
+    } else {
+        const hours = matches[1] == null
+            ? 0
+            : parseInt(matches[1], 10);
+        const minutes = matches[2] == null
+            ? 0
+            : parseInt(matches[2], 10);
+        const seconds = matches[3] == null
+            ? 0
+            : parseFloat(matches[3]);
+
+        return {hours, minutes, seconds};
+    }
+}

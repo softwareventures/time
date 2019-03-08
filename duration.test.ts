@@ -1,5 +1,5 @@
 import test from "ava";
-import {fromSeconds, isValid, toSeconds} from "./duration";
+import {fromSeconds, isValid, parsehhmmss, toSeconds} from "./duration";
 
 test("isValid", t => {
     t.true(isValid({}));
@@ -43,4 +43,22 @@ test("fromSeconds", t => {
     t.deepEqual(fromSeconds(-5), {hours: -1, minutes: 59, seconds: 55});
     t.deepEqual(fromSeconds(57), {hours: 0, minutes: 0, seconds: 57});
     t.deepEqual(fromSeconds(-3116), {hours: -1, minutes: 8, seconds: 4});
+});
+
+test("parsehhmmss", t => {
+    t.is(parsehhmmss(""), null);
+    t.is(parsehhmmss(":"), null);
+    t.is(parsehhmmss("::"), null);
+    t.is(parsehhmmss(":1.2"), null);
+    t.is(parsehhmmss("::2"), null);
+    t.deepEqual(parsehhmmss("0"), {hours: 0, minutes: 0, seconds: 0});
+    t.deepEqual(parsehhmmss("0.1"), {hours: 0, minutes: 0, seconds: 0.1});
+    t.deepEqual(parsehhmmss("1.2"), {hours: 0, minutes: 0, seconds: 1.2});
+    t.deepEqual(parsehhmmss("2"), {hours: 0, minutes: 0, seconds: 2});
+    t.deepEqual(parsehhmmss("0:13"), {hours: 0, minutes: 0, seconds: 13});
+    t.deepEqual(parsehhmmss("3:22.5"), {hours: 0, minutes: 3, seconds: 22.5});
+    t.deepEqual(parsehhmmss("3:2.5"), {hours: 0, minutes: 3, seconds: 2.5});
+    t.deepEqual(parsehhmmss("6:5:1"), {hours: 6, minutes: 5, seconds: 1});
+    t.deepEqual(parsehhmmss("1:48:23.25"), {hours: 1, minutes: 48, seconds: 23.25});
+    t.deepEqual(parsehhmmss("1:62:77"), {hours: 1, minutes: 62, seconds: 77});
 });
