@@ -1,4 +1,5 @@
-import {isNonNegativeFinite} from "./util";
+import {isIntegerInRange, isNonNegativeFinite} from "./util";
+import isInteger = require("is-integer");
 
 /** A length of time. */
 export interface Duration {
@@ -21,6 +22,17 @@ export function validate(duration: Readonly<Partial<Duration>>): void {
     if (!isValid(duration)) {
         throw new TypeError("Invalid duration");
     }
+}
+
+export function isNormal(duration: Readonly<Duration>): boolean {
+    return isInteger(duration.hours)
+        && isIntegerInRange(duration.minutes, 0, 59)
+        && isNonNegativeFinite(duration.seconds)
+        && duration.seconds < 60;
+}
+
+export function normalize(duration: Readonly<Partial<Duration>>): Duration {
+    return fromSeconds(toSeconds(duration));
 }
 
 export function toSeconds(duration: Readonly<Partial<Duration>>): number {
