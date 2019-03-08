@@ -1,7 +1,25 @@
 import test from "ava";
-import {fromSeconds, toSeconds} from "./duration";
+import {fromSeconds, isValid, toSeconds} from "./duration";
 
 // tslint:disable:max-line-length
+
+test("isValid({})", t => t.true(isValid({})));
+test("isValid({seconds: 0})", t => t.true(isValid({seconds: 0})));
+test("isValid({seconds: 0.5})", t => t.true(isValid({seconds: 0.5})));
+test("isValid({seconds: -1})", t => t.false(isValid({seconds: -1})));
+test("isValid({seconds: 61})", t => t.true(isValid({seconds: 61})));
+test("isValid({minutes: 0})", t => t.true(isValid({minutes: 0})));
+test("isValid({minutes: 0.5})", t => t.true(isValid({minutes: 0.5})));
+test("isValid({minutes: -1})", t => t.false(isValid({minutes: -1})));
+test("isValid({minutes: 61})", t => t.true(isValid({minutes: 61})));
+test("isValid({hours: 0})", t => t.true(isValid({hours: 0})));
+test("isValid({hours: 0.5})", t => t.true(isValid({hours: 0.5})));
+test("isValid({hours: -1})", t => t.false(isValid({hours: -1})));
+test("isValid({hours: 25})", t => t.true(isValid({hours: 25})));
+test("isValid({minutes: 1.5, seconds: 2})", t => t.true(isValid({minutes: 1.5, seconds: 2})));
+test("isValid({hours: 2.25, minutes: 0.5, seconds: 3})", t => t.true(isValid({hours: 2.25, minutes: 0.5, seconds: 3})));
+test("isValid({minutes: 1, seconds: -3})", t => t.false(isValid({minutes: 1, seconds: -3})));
+test("isValid({hours: -1, minutes: 8, seconds: 4})", t => t.false(isValid({hours: -1, minutes: 8, seconds: 4})));
 
 test("toSeconds({})", t => t.is(toSeconds({}), 0));
 test("toSeconds({seconds: 80})", t => t.is(toSeconds({seconds: 80}), 80));

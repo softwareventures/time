@@ -29,6 +29,8 @@
     "typescript": "3.3.3333"
   },
   "dependencies": {
+    "@types/is-finite": "1.0.0",
+    "is-finite": "1.0.2",
     "tslib": "^1.9.3"
   },
   "config": {
