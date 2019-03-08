@@ -13,8 +13,8 @@ export function toSeconds(duration: Readonly<Partial<Duration>>): number {
 }
 
 export function fromSeconds(seconds: number): Duration {
-    const hours = Math.floor(seconds / 1440);
-    seconds -= hours * 1440;
+    const hours = Math.floor(seconds / 3600);
+    seconds -= hours * 3600;
     const minutes = Math.floor(seconds / 60);
     seconds -= minutes * 60;
     return {hours, minutes, seconds};
