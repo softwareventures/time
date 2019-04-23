@@ -1,17 +1,4 @@
-/**
- * Internal utilities
- */
-
-import isFinite = require("is-finite");
 import isInteger = require("is-integer");
-
-/**
- * Tests if the specified value is a non-negative finite number.
- * @internal
- */
-export function isNonNegativeFinite(value: number): boolean {
-    return isFinite(value) && value >= 0;
-}
 
 /**
  * Tests if the specified value is an integer in the specified range.

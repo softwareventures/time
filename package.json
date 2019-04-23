@@ -29,9 +29,7 @@
     "typescript": "3.4.4"
   },
   "dependencies": {
-    "@types/is-finite": "1.0.0",
     "@types/is-integer": "1.0.0",
-    "is-finite": "1.0.2",
     "is-integer": "1.0.7",
     "tslib": "^1.9.3"
   },
