@@ -1,5 +1,5 @@
 import isInteger = require("is-integer");
-import {isIntegerInRange} from "./util";
+import isIntegerInRange from "is-integer-in-range";
 
 /** An abstract date, with no associated time zone. */
 export interface Date {
