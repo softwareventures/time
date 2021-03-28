@@ -19,6 +19,7 @@
   },
   "sideEffects": false,
   "devDependencies": {
+    "@softwareventures/semantic-release-config": "1.1.1",
     "@softwareventures/tsconfig": "2.3.3",
     "@softwareventures/tslint-rules": "0.9.1",
     "ava": "3.15.0",
@@ -46,5 +47,8 @@
     "require": [
       "ts-node/register"
     ]
+  },
+  "release": {
+    "extends": "@softwareventures/semantic-release-config"
   }
 }
