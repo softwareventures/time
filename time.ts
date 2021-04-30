@@ -14,7 +14,7 @@ export function toReferenceSeconds(time: Readonly<Time>): number {
 }
 
 export function fromReferenceSeconds(seconds: number): Time {
-    const hours = Math.floor(seconds / 1440);
+    const hours = Math.floor(seconds / 3600);
     seconds -= hours * 3600;
     const minutes = Math.floor(seconds / 60);
     seconds -= minutes * 60;
