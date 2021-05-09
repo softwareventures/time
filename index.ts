@@ -10,7 +10,7 @@ export function normalize(time: Readonly<Time>): Time {
 }
 
 export function toReferenceSeconds(time: Readonly<Time>): number {
-    return (86400 + (time.hours * 3600 + time.minutes * 60 + time.seconds) % 86400) % 86400;
+    return (86400 + ((time.hours * 3600 + time.minutes * 60 + time.seconds) % 86400)) % 86400;
 }
 
 export function fromReferenceSeconds(seconds: number): Time {
