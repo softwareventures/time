@@ -22,8 +22,7 @@ export const NOVEMBER = 11;
 export const DECEMBER = 12;
 
 export function isLeapYear(year: number): boolean {
-    return (year % 4 === 0 && year % 100 !== 0)
-        || (year % 400 === 0);
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 
 export function daysInMonth(month: number, year: number): number {
@@ -37,9 +36,11 @@ export function daysInMonth(month: number, year: number): number {
 }
 
 export function isValid(date: Readonly<Date>): boolean {
-    return isInteger(date.year)
-        && isIntegerInRange(date.month, JANUARY, DECEMBER)
-        && isIntegerInRange(date.day, 1, daysInMonth(date.month, date.year));
+    return (
+        isInteger(date.year) &&
+        isIntegerInRange(date.month, JANUARY, DECEMBER) &&
+        isIntegerInRange(date.day, 1, daysInMonth(date.month, date.year))
+    );
 }
 
 export function validate(date: Readonly<Date>): void {
@@ -63,12 +64,15 @@ export function toReferenceDays(date: Partial<Readonly<Date>>): number {
 
     const referenceMonths = (year - 1) * 12 + month - 1;
 
-    return Math.floor(referenceMonths * 365 / 12)
-        + Math.floor((referenceMonths + 10) / 48)
-        - Math.floor((referenceMonths + 10) / 1200)
-        + Math.floor((referenceMonths + 10) / 4800)
-        + [0, 1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0][(12 + (referenceMonths % 12)) % 12]
-        + day - 1;
+    return (
+        Math.floor((referenceMonths * 365) / 12) +
+        Math.floor((referenceMonths + 10) / 48) -
+        Math.floor((referenceMonths + 10) / 1200) +
+        Math.floor((referenceMonths + 10) / 4800) +
+        [0, 1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0][(12 + (referenceMonths % 12)) % 12] +
+        day -
+        1
+    );
 }
 
 /**
@@ -77,25 +81,33 @@ export function toReferenceDays(date: Partial<Readonly<Date>>): number {
  */
 export function fromReferenceDays(referenceDays: number): Date {
     const quadricentennium = Math.floor((referenceDays + 366) / 146097);
-    const dayInQuadricentennium = (referenceDays + 366) - quadricentennium * 146097;
-    const centuryInQuadricentennium = dayInQuadricentennium === 0
-        ? 0
-        : Math.floor((dayInQuadricentennium - 1) / 36524);
+    const dayInQuadricentennium = referenceDays + 366 - quadricentennium * 146097;
+    const centuryInQuadricentennium =
+        dayInQuadricentennium === 0 ? 0 : Math.floor((dayInQuadricentennium - 1) / 36524);
     const longCentury = centuryInQuadricentennium === 0;
-    const dayInCentury = dayInQuadricentennium - [0, 36525, 73049, 109573][centuryInQuadricentennium];
-    const quadrenniumInCentury = Math.floor((dayInCentury + Number(centuryInQuadricentennium !== 0)) / 1461);
+    const dayInCentury =
+        dayInQuadricentennium - [0, 36525, 73049, 109573][centuryInQuadricentennium];
+    const quadrenniumInCentury = Math.floor(
+        (dayInCentury + Number(centuryInQuadricentennium !== 0)) / 1461
+    );
     const longQuadrennium = quadrenniumInCentury !== 0 || longCentury;
-    const dayInQuadrennium = dayInCentury - quadrenniumInCentury * 1461
-        + Number(quadrenniumInCentury !== 0 && !longCentury);
-    const yearInQuadrennium = dayInQuadrennium === 0
-        ? 0
-        : Math.floor((dayInQuadrennium - Number(longQuadrennium)) / 365);
-    const dayInYear = dayInQuadrennium - yearInQuadrennium * 365
-        - Number(yearInQuadrennium !== 0 && longQuadrennium);
+    const dayInQuadrennium =
+        dayInCentury -
+        quadrenniumInCentury * 1461 +
+        Number(quadrenniumInCentury !== 0 && !longCentury);
+    const yearInQuadrennium =
+        dayInQuadrennium === 0 ? 0 : Math.floor((dayInQuadrennium - Number(longQuadrennium)) / 365);
+    const dayInYear =
+        dayInQuadrennium -
+        yearInQuadrennium * 365 -
+        Number(yearInQuadrennium !== 0 && longQuadrennium);
     const leapDay = Number(longQuadrennium && yearInQuadrennium === 0);
 
-    const year = quadricentennium * 400 + centuryInQuadricentennium * 100
-        + quadrenniumInCentury * 4 + yearInQuadrennium;
+    const year =
+        quadricentennium * 400 +
+        centuryInQuadricentennium * 100 +
+        quadrenniumInCentury * 4 +
+        yearInQuadrennium;
     let month: number;
     let day: number;
 
