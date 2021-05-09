@@ -1,5 +1,5 @@
 import test from "ava";
-import {fromReferenceSeconds} from "./time";
+import {fromReferenceSeconds} from ".";
 
 test("fromReferenceSeconds", t => {
     t.deepEqual(fromReferenceSeconds(0), {hours: 0, minutes: 0, seconds: 0});
