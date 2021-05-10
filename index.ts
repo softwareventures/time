@@ -1,5 +1,8 @@
 /** An abstract time of day with no associated timezone or date. */
 export interface Time {
+    /** Type discriminator. */
+    readonly type: "time";
+
     /** The hours component of the time of day. Should be an integer in the
      * range 0-23. */
     readonly hours: number;
@@ -36,5 +39,5 @@ export function fromReferenceSeconds(seconds: number): Time {
     seconds -= hours * 3600;
     const minutes = Math.floor(seconds / 60);
     seconds -= minutes * 60;
-    return {hours, minutes, seconds};
+    return {type: "time", hours, minutes, seconds};
 }
