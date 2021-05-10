@@ -14,12 +14,21 @@ export interface Time {
     readonly seconds: number;
 }
 
-export function normalize(time: Time): Time {
+/** Options for creating a {@link Time}.
+ *
+ * An instance of {@link Time} may always be used in place of TimeOptions. */
+export type TimeOptions = Partial<Time>;
+
+export function normalize(time: TimeOptions): Time {
     return fromReferenceSeconds(toReferenceSeconds(time));
 }
 
-export function toReferenceSeconds(time: Time): number {
-    return (86400 + ((time.hours * 3600 + time.minutes * 60 + time.seconds) % 86400)) % 86400;
+export function toReferenceSeconds(time: TimeOptions): number {
+    const hours = time.hours ?? 0;
+    const minutes = time.minutes ?? 0;
+    const seconds = time.seconds ?? 0;
+
+    return (86400 + ((hours * 3600 + minutes * 60 + seconds) % 86400)) % 86400;
 }
 
 export function fromReferenceSeconds(seconds: number): Time {
