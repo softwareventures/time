@@ -1,4 +1,4 @@
-/** An abstract time with no associated timezone or date. */
+/** An abstract time of day with no associated timezone or date. */
 export interface Time {
     hours: number;
     minutes: number;
