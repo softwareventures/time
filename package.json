@@ -21,6 +21,9 @@
     "test": "ava"
   },
   "sideEffects": false,
+  "engines": {
+    "node": ">= 12"
+  },
   "dependencies": {
     "@types/is-integer": "1.0.0",
     "is-integer": "1.0.7",
