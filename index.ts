@@ -1,7 +1,16 @@
 /** An abstract time of day with no associated timezone or date. */
 export interface Time {
+    /** The hours component of the time of day. Should be an integer in the
+     * range 0-23. */
     hours: number;
+
+    /** The minutes component of the time of day. Should be an integer in the
+     * range 0-59. */
     minutes: number;
+
+    /** The seconds component of the time of day. Should be in the range 0-60,
+     * inclusive of 0 but exclusive of 60. May be fractional to represent an
+     * instant in time with sub-second accuracy. */
     seconds: number;
 }
 
