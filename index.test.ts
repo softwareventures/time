@@ -11,8 +11,18 @@ test("fromReferenceSeconds", t => {
     t.deepEqual(fromReferenceSeconds(121), {type: "time", hours: 0, minutes: 2, seconds: 1});
     t.deepEqual(fromReferenceSeconds(3599), {type: "time", hours: 0, minutes: 59, seconds: 59});
     t.deepEqual(fromReferenceSeconds(3600), {type: "time", hours: 1, minutes: 0, seconds: 0});
-    t.deepEqual(fromReferenceSeconds(3600.125), {type: "time", hours: 1, minutes: 0, seconds: 0.125});
-    t.deepEqual(fromReferenceSeconds(7199.96875), {type: "time", hours: 1, minutes: 59, seconds: 59.96875});
+    t.deepEqual(fromReferenceSeconds(3600.125), {
+        type: "time",
+        hours: 1,
+        minutes: 0,
+        seconds: 0.125
+    });
+    t.deepEqual(fromReferenceSeconds(7199.96875), {
+        type: "time",
+        hours: 1,
+        minutes: 59,
+        seconds: 59.96875
+    });
     t.deepEqual(fromReferenceSeconds(7244), {type: "time", hours: 2, minutes: 0, seconds: 44});
     t.deepEqual(fromReferenceSeconds(49407), {type: "time", hours: 13, minutes: 43, seconds: 27});
 });
