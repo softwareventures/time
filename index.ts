@@ -282,3 +282,19 @@ export function afterFn(b: TimeOptions): (a: TimeOptions) => boolean {
  *
  * Alias for {@link afterFn}. */
 export const timeAfterFn = afterFn;
+
+/** Returns the current time of day in UTC. */
+export function nowUtc(): Time {
+    const now = new JsDate();
+    return {
+        type: "time",
+        hours: now.getUTCHours(),
+        minutes: now.getUTCMinutes(),
+        seconds: now.getUTCSeconds() + 0.001 * now.getUTCMilliseconds()
+    };
+}
+
+/** Returns the current time of day in UTC.
+ *
+ * Alias for {@link nowUtc}. */
+export const timeNowUtc = nowUtc;
