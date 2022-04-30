@@ -40,7 +40,13 @@ export function isTime(value: unknown): value is Time {
     );
 }
 
-export function normalize(time: TimeOptions): Time {
+/** Creates a Time with the specified options.
+ *
+ * If any numeric components are unspecified, they default to zero.
+ *
+ * If any numeric components are outside the expected range, then
+ * the resulting Time will be normalized. */
+export function time(time: TimeOptions): Time {
     return fromReferenceSeconds(toReferenceSeconds(time));
 }
 
