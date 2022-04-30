@@ -145,3 +145,25 @@ export function equalFn(b: TimeOptions): (a: TimeOptions) => boolean {
  *
  * Alias for {@link equalFn}. */
 export const timeEqualFn = equalFn;
+
+/** Tests if two Times are not equal. */
+export function notEqual(a: TimeOptions, b: TimeOptions): boolean {
+    return toReferenceSeconds(a) !== toReferenceSeconds(b);
+}
+
+/** Tests if two Times are not equal.
+ *
+ * Alias for {@link notEqual}. */
+export const timeNotEqual = notEqual;
+
+/** Tests if two Times are not equal.
+ *
+ * Curried variant of {@link notEqual}. */
+export function notEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
+    return a => notEqual(a, b);
+}
+
+/** Tests if two Times are not equal.
+ *
+ * Alias for {@link notEqualFn}. */
+export const timeNotEqualFn = notEqualFn;
