@@ -1,10 +1,9 @@
 {
   "name": "@softwareventures/time",
   "version": "0.0.0-development",
-  "description": "Time and date library",
+  "description": "Data types and functions for working with abstract times of day",
   "keywords": [
     "TypeScript",
-    "date",
     "time"
   ],
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
