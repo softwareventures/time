@@ -98,8 +98,13 @@ export function toReferenceSeconds(time: TimeOptions): number {
 }
 
 /** Creates a Time corresponding to the specified count of seconds
- * since midnight. */
+ * since midnight.
+ *
+ * @throws {Error} if seconds is not a finite value. */
 export function fromReferenceSeconds(seconds: number): Time {
+    if (!isFinite(seconds)) {
+        throw new Error("Non-finite seconds");
+    }
     const hours = Math.floor(seconds / 3600);
     const seconds2 = seconds - hours * 3600;
     const minutes = Math.floor(seconds2 / 60);
