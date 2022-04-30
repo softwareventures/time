@@ -15,7 +15,7 @@
   "scripts": {
     "fix": "tsc --noEmit && eslint . --fix && prettier --write .",
     "lint": "tsc --noEmit && eslint . && prettier --check .",
-    "prepare": "tsc",
+    "prepare": "husky install && tsc",
     "semantic-release": "semantic-release",
     "test": "ava"
   },
@@ -31,12 +31,14 @@
   },
   "devDependencies": {
     "@softwareventures/eslint-config": "4.3.5",
+    "@softwareventures/precise-commits": "2.0.20",
     "@softwareventures/prettier-config": "3.0.0",
     "@softwareventures/semantic-release-config": "2.0.2",
     "@softwareventures/tsconfig": "5.1.1",
     "ava": "4.2.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.14.0",
+    "husky": "7.0.4",
     "prettier": "2.6.2",
     "semantic-release": "17.4.7",
     "ts-node": "10.7.0",
