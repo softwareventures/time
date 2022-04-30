@@ -298,3 +298,19 @@ export function nowUtc(): Time {
  *
  * Alias for {@link nowUtc}. */
 export const timeNowUtc = nowUtc;
+
+/** Returns the current time of day in the device's local timezone. */
+export function nowDeviceLocal(): Time {
+    const now = new JsDate();
+    return {
+        type: "time",
+        hours: now.getHours(),
+        minutes: now.getMinutes(),
+        seconds: now.getSeconds() + 0.001 * now.getMilliseconds()
+    };
+}
+
+/** Returns the current time of day in the device's local timezone.
+ *
+ * Alias for {@link nowDeviceLocal}. */
+export const timeNowDeviceLocal = nowDeviceLocal;
