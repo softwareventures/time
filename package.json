@@ -24,6 +24,7 @@
     "node": "^12 || ^14 || >=16"
   },
   "dependencies": {
+    "@softwareventures/ordered": "^1.0.0",
     "@types/is-integer": "1.0.0",
     "is-integer": "^1.0.7",
     "is-integer-in-range": "^3.0.1",

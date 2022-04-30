@@ -643,7 +643,7 @@
   dependencies:
     tslib "2.3.0"
 
-"@softwareventures/ordered@^0.2.0 || ^1.0.0":
+"@softwareventures/ordered@^0.2.0 || ^1.0.0", "@softwareventures/ordered@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@softwareventures/ordered/-/ordered-1.0.0.tgz#d803eef43bb0b4ccfcd78d2928fe38b5109ad99e"
   integrity sha512-SUFUYDWEPAS54LpGH+mRHwkGuTINPDt4OOS3h/Zr9f12JPFz2cqh6Xxwg75BZqwaeONuUwmklJVMRmgvxSSkPA==

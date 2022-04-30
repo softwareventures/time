@@ -2,6 +2,7 @@
 
 import {hasProperty} from "unknown";
 import isIntegerInRange from "is-integer-in-range";
+import {Comparator, Comparison} from "@softwareventures/ordered";
 
 /** An abstract time of day with no associated timezone or date. */
 export interface Time {
@@ -167,3 +168,48 @@ export function notEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
  *
  * Alias for {@link notEqualFn}. */
 export const timeNotEqualFn = notEqualFn;
+
+/** Compares two Times.
+ *
+ * Time `a` is considered to be `before` time `b` if time `a` is
+ * earlier in the day. */
+export const compare: Comparator<TimeOptions> = (a, b) => {
+    const as = toReferenceSeconds(a);
+    const bs = toReferenceSeconds(b);
+
+    if (as < bs) {
+        return Comparison.before;
+    } else if (as > bs) {
+        return Comparison.after;
+    } else if (as === bs) {
+        return Comparison.equal;
+    } else {
+        return Comparison.undefined;
+    }
+}
+
+/** Compares two Times.
+ *
+ * Time `a` is considered to be `before` time `b` if time `a` is
+ * earlier in the day.
+ *
+ * Alias for {@link compare}. */
+export const timeCompare = compare;
+
+/** Compares two Times.
+ *
+ * Time `a` is considered to be `before` time `b` if time `a` is
+ * earlier in the day.
+ *
+ * Curried variant of {@link compare}. */
+export function compareFn(b: TimeOptions): (a: TimeOptions) => Comparison {
+    return a => compare(a, b);
+}
+
+/** Compares two Times.
+ *
+ * Time `a` is considered to be `before` time `b` if time `a` is
+ * earlier in the day.
+ *
+ * Alias for {@link compareFn}. */
+export const timeCompareFn = compareFn;
