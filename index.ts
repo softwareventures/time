@@ -1,4 +1,6 @@
 /** An abstract time of day with no associated timezone or date. */
+import {hasProperty} from "unknown";
+
 export interface Time {
     /** Type discriminator. */
     readonly type: "time";
@@ -21,6 +23,22 @@ export interface Time {
  *
  * An instance of {@link Time} may always be used in place of TimeOptions. */
 export type TimeOptions = Partial<Time>;
+
+/** Tests if the specified value is a Time. */
+export function isTime(value: unknown): value is Time {
+    return (
+        typeof value === "object" &&
+        value != null &&
+        hasProperty(value, "type") &&
+        value.type === "time" &&
+        hasProperty(value, "hours") &&
+        typeof value.hours === "number" &&
+        hasProperty(value, "minutes") &&
+        typeof value.minutes === "number" &&
+        hasProperty(value, "seconds") &&
+        typeof value.seconds === "number"
+    );
+}
 
 export function normalize(time: TimeOptions): Time {
     return fromReferenceSeconds(toReferenceSeconds(time));
