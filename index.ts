@@ -92,8 +92,10 @@ export function time(time: TimeOptions): Time {
  *
  * If any numeric components are unspecified, they default to zero.
  *
- * If any numeric components are outside the expected range, then
- * the resulting Time will be normalized.
+ * If any numeric components are outside the expected range, then they
+ * will roll over into the next larger component. If the time as a whole
+ * is outside the 24-hour range, then the time will wrap around by as
+ * many 24-hour periods as needed to put it in the valid range.
  *
  * @throws {Error} if any of the numeric components are non-finite. */
 export const normalize = time;
