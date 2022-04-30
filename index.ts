@@ -50,6 +50,14 @@ export function time(time: TimeOptions): Time {
     return fromReferenceSeconds(toReferenceSeconds(time));
 }
 
+/** Creates a Time with the specified options.
+ *
+ * If any numeric components are unspecified, they default to zero.
+ *
+ * If any numeric components are outside the expected range, then
+ * the resulting Time will be normalized. */
+export const normalize = time;
+
 export function toReferenceSeconds(time: TimeOptions): number {
     const hours = time.hours ?? 0;
     const minutes = time.minutes ?? 0;
