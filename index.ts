@@ -257,3 +257,25 @@ export function beforeOrEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
  *
  * Alias for {@link beforeOrEqualFn}. */
 export const timeBeforeOrEqualFn = beforeOrEqualFn;
+
+/** Tests if Time `a` is later in the day than Time `b`. */
+export function after(a: TimeOptions, b: TimeOptions): boolean {
+    return toReferenceSeconds(a) > toReferenceSeconds(b);
+}
+
+/** Tests if Time `a` is later in the day than Time `b`.
+ *
+ * Alias for {@link after}. */
+export const timeAfter = after;
+
+/** Tests if Time `a` is later in the day than Time `b`.
+ *
+ * Curried variant of {@link after}. */
+export function afterFn(b: TimeOptions): (a: TimeOptions) => boolean {
+    return a => after(a, b);
+}
+
+/** Tests if Time `a` is later in the day than Time `b`.
+ *
+ * Alias for {@link afterFn}. */
+export const timeAfterFn = afterFn;
