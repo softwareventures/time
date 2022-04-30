@@ -21,7 +21,7 @@
   },
   "sideEffects": false,
   "engines": {
-    "node": "^12 || ^14 || >=16"
+    "node": "^14 || >=16"
   },
   "dependencies": {
     "@softwareventures/ordered": "^1.0.0",
