@@ -2,7 +2,9 @@
 
 import {hasProperty} from "unknown";
 import isIntegerInRange from "is-integer-in-range";
-import {Comparator, Comparison} from "@softwareventures/ordered";
+import type {Comparator} from "@softwareventures/ordered";
+import {Comparison} from "@softwareventures/ordered";
+import {JsDate} from "./js-date";
 
 /** An abstract time of day with no associated timezone or date. */
 export interface Time {
@@ -63,7 +65,8 @@ export function isValid(time: Time): boolean {
     return (
         isIntegerInRange(time.hours, 0, 23) &&
         isIntegerInRange(time.minutes, 0, 59) &&
-        time.seconds >= 0 && time.seconds < 60
+        time.seconds >= 0 &&
+        time.seconds < 60
     );
 }
 
@@ -186,7 +189,7 @@ export const compare: Comparator<TimeOptions> = (a, b) => {
     } else {
         return Comparison.undefined;
     }
-}
+};
 
 /** Compares two Times.
  *
