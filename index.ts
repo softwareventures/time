@@ -1,6 +1,6 @@
-/** An abstract time of day with no associated timezone or date. */
 import {hasProperty} from "unknown";
 
+/** An abstract time of day with no associated timezone or date. */
 export interface Time {
     /** Type discriminator. */
     readonly type: "time";
