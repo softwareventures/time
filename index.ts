@@ -36,8 +36,8 @@ export function toReferenceSeconds(time: TimeOptions): number {
 
 export function fromReferenceSeconds(seconds: number): Time {
     const hours = Math.floor(seconds / 3600);
-    seconds -= hours * 3600;
-    const minutes = Math.floor(seconds / 60);
-    seconds -= minutes * 60;
-    return {type: "time", hours, minutes, seconds};
+    const seconds2 = seconds - hours * 3600;
+    const minutes = Math.floor(seconds2 / 60);
+    const seconds3 = seconds2 - minutes * 60;
+    return {type: "time", hours, minutes, seconds: seconds3};
 }
