@@ -67,6 +67,8 @@ export function toReferenceSeconds(time: TimeOptions): number {
     return (86400 + ((hours * 3600 + minutes * 60 + seconds) % 86400)) % 86400;
 }
 
+/** Creates a Time corresponding to the specified count of seconds
+ * since midnight. */
 export function fromReferenceSeconds(seconds: number): Time {
     const hours = Math.floor(seconds / 3600);
     const seconds2 = seconds - hours * 3600;
