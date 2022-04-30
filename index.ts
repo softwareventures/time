@@ -1,6 +1,7 @@
 /** @file Data types and functions for working with abstract times of day. */
 
 import {hasProperty} from "unknown";
+import isIntegerInRange from "is-integer-in-range";
 
 /** An abstract time of day with no associated timezone or date. */
 export interface Time {
@@ -45,6 +46,18 @@ export function isTime(value: unknown): value is Time {
         typeof value.minutes === "number" &&
         hasProperty(value, "seconds") &&
         typeof value.seconds === "number"
+    );
+}
+
+/** Tests if the specified Time object represents a valid time.
+ *
+ * Returns true if `hours` and `minutes` are integers within the expected
+ * range, and `seconds` is a number within the expected range. */
+export function isValid(time: Time): boolean {
+    return (
+        isIntegerInRange(time.hours, 0, 23) &&
+        isIntegerInRange(time.minutes, 0, 59) &&
+        time.seconds >= 0 && time.seconds < 60
     );
 }
 

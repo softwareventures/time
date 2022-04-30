@@ -3087,7 +3087,7 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@^4.0.3, is-glob@~4.0.1:
   dependencies:
     is-extglob "^2.1.1"
 
-"is-integer-in-range@^1.0.0 || ^2.0.0 || ^3.0.0":
+is-integer-in-range@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/is-integer-in-range/-/is-integer-in-range-3.0.1.tgz#3572cff0d316a9c56478c249619a635721883fc8"
   integrity sha512-TxxzQQXksIbn8ORDgi1Rm5swhVx2F3iMg+SXCTYMfs4MsaR9n6tOGNjH5zYwRqkQcSilOMkDOrgiEzqrn/eZZw==
@@ -3096,7 +3096,7 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@^4.0.3, is-glob@~4.0.1:
     is-integer "^1.0.7"
     tslib "2.3.1"
 
-is-integer@1.0.7, is-integer@^1.0.7:
+is-integer@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/is-integer/-/is-integer-1.0.7.tgz#6bde81aacddf78b659b6629d629cadc51a886d5c"
   integrity sha1-a96Bqs3feLZZtmKdYpytxRqIbVw=
