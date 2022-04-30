@@ -33,7 +33,10 @@ export type TimeOptions = Partial<Time>;
  * and `seconds` fields, and a `type` field set to `"time"`.
  *
  * The numeric fields may be non-integers or outside the expected range,
- * meaning that the object may not represent a valid time. */
+ * meaning that the object may not represent a valid time.
+ *
+ * To test if the object represents a valid time, call {@link isValid} or
+ * {@link isTimeValid}. */
 export function isTime(value: unknown): value is Time {
     return (
         typeof value === "object" &&
