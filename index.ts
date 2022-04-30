@@ -123,3 +123,25 @@ export function fromReferenceSeconds(seconds: number): Time {
     const seconds3 = seconds2 - minutes * 60;
     return {type: "time", hours, minutes, seconds: seconds3};
 }
+
+/** Tests if two Times are equal. */
+export function equal(a: TimeOptions, b: TimeOptions): boolean {
+    return toReferenceSeconds(a) === toReferenceSeconds(b);
+}
+
+/** Tests if two Times are equal.
+ *
+ * Alias for {@link equal}. */
+export const timeEqual = equal;
+
+/** Tests if two Times are equal.
+ *
+ * Curried variant of {@link equal}. */
+export function equalFn(b: TimeOptions): (a: TimeOptions) => boolean {
+    return a => equal(a, b);
+}
+
+/** Tests if two Times are equal.
+ *
+ * Alias for {@link equalFn}. */
+export const timeEqualFn = equalFn;
