@@ -75,7 +75,9 @@ export const isTimeValid = isValid;
  * If any numeric components are unspecified, they default to zero.
  *
  * If any numeric components are outside the expected range, then
- * the resulting Time will be normalized. */
+ * the resulting Time will be normalized.
+ *
+ * @throws {Error} if any of the numeric components are non-finite. */
 export function time(time: TimeOptions): Time {
     return fromReferenceSeconds(toReferenceSeconds(time));
 }
