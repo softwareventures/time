@@ -69,7 +69,9 @@ export function isValid(time: Time): boolean {
 /** Tests if the specified Time object represents a valid time.
  *
  * Returns true if `hours` and `minutes` are integers within the expected
- * range, and `seconds` is a number within the expected range. */
+ * range, and `seconds` is a number within the expected range.
+ *
+ * Times returned by functions in this library are always valid. */
 export const isTimeValid = isValid;
 
 /** Creates a Time with the specified options.
