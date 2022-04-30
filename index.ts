@@ -1,3 +1,5 @@
+/** @file Data types and functions for working with abstract times of day. */
+
 import {hasProperty} from "unknown";
 
 /** An abstract time of day with no associated timezone or date. */
