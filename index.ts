@@ -26,7 +26,13 @@ export interface Time {
  * An instance of {@link Time} may always be used in place of TimeOptions. */
 export type TimeOptions = Partial<Time>;
 
-/** Tests if the specified value is a Time. */
+/** Tests if the specified value has the shape of a Time object.
+ *
+ * Returns true if the value is an object that has numeric `hours`, `minutes`
+ * and `seconds` fields, and a `type` field set to `"time"`.
+ *
+ * The numeric fields may be non-integers or outside the expected range,
+ * meaning that the object may not represent a valid time. */
 export function isTime(value: unknown): value is Time {
     return (
         typeof value === "object" &&
