@@ -213,3 +213,25 @@ export function compareFn(b: TimeOptions): (a: TimeOptions) => Comparison {
  *
  * Alias for {@link compareFn}. */
 export const timeCompareFn = compareFn;
+
+/** Tests if Time `a` is earlier in the day than Time `b`. */
+export function before(a: TimeOptions, b: TimeOptions): boolean {
+    return toReferenceSeconds(a) < toReferenceSeconds(b);
+}
+
+/** Tests if Time `a` is earlier in the day than Time `b`.
+ *
+ * Alias for {@link before}. */
+export const timeBefore = before;
+
+/** Tests if Time `a` is earlier in the day than Time `b`.
+ *
+ * Curried variant of {@link before}. */
+export function beforeFn(b: TimeOptions): (a: TimeOptions) => boolean {
+    return a => before(a, b);
+}
+
+/** Tests if Time `a` is earlier in the day than Time `b`.
+ *
+ * Alias for {@link beforeFn}. */
+export const timeBeforeFn = beforeFn;
