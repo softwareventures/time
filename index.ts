@@ -58,6 +58,7 @@ export function time(time: TimeOptions): Time {
  * the resulting Time will be normalized. */
 export const normalize = time;
 
+/** Converts the specified Time to a count of seconds since midnight. */
 export function toReferenceSeconds(time: TimeOptions): number {
     const hours = time.hours ?? 0;
     const minutes = time.minutes ?? 0;
