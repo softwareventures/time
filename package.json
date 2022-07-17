@@ -40,7 +40,7 @@
     "@softwareventures/semantic-release-config": "2.0.2",
     "@softwareventures/tsconfig": "6.0.0",
     "ava": "4.2.0",
-    "commitizen": "4.2.4",
+    "commitizen": "4.2.5",
     "eslint": "8.20.0",
     "husky": "8.0.1",
     "prettier": "2.7.1",
