@@ -33,7 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.2.0",
     "@commitlint/config-conventional": "17.2.0",
-    "@commitlint/cz-commitlint": "17.1.2",
+    "@commitlint/cz-commitlint": "17.2.0",
     "@softwareventures/eslint-config": "5.1.6",
     "@softwareventures/precise-commits": "2.0.24",
     "@softwareventures/prettier-config": "3.0.0",
