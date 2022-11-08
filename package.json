@@ -42,7 +42,7 @@
     "ava": "4.2.0",
     "commitizen": "4.2.5",
     "eslint": "8.27.0",
-    "husky": "8.0.1",
+    "husky": "8.0.2",
     "prettier": "2.7.1",
     "semantic-release": "19.0.5",
     "ts-node": "10.9.1",
