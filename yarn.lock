@@ -805,10 +805,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.4.tgz#0b92dcc0cc1c81f6f306a381f28e31b1a56536e9"
   integrity sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==
 
-"@types/is-integer@1.0.0", "@types/is-integer@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@types/is-integer/-/is-integer-1.0.0.tgz#8393445ad14b2b51c9ac7e91220de0efc8de2028"
-  integrity sha512-AAFRQhSVYdpQgKEkUY+bMRL8yAZSq7h7AY14iSK1xod4wOdH4Gc/KMAR4tlSo9Sf5KsYizWwlJOnLCbet5AU2A==
+"@types/is-integer@1.0.1", "@types/is-integer@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/is-integer/-/is-integer-1.0.1.tgz#c2419a1b62f5832e20951d299133395ac30f348f"
+  integrity sha512-SaUlxmTmK1/40shrrh1Rn1KrBONmUQKFgjytJ3r+ewqk9bpXySOvwiMfGF/O9O4SRidGKnqJgqREYVRDEitFAQ==
 
 "@types/json-schema@^7.0.9":
   version "7.0.13"

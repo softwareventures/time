@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@softwareventures/ordered": "^1.0.0 || ^2.0.0",
-    "@types/is-integer": "1.0.0",
+    "@types/is-integer": "1.0.1",
     "is-integer": "^1.0.7",
     "is-integer-in-range": "^3.0.1 || ^4.0.0",
     "tslib": "^1.9.3 || ^2.0.0 || ^2.1.0",
