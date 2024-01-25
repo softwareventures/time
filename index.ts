@@ -8,7 +8,7 @@ import {JsDate} from "./js-date";
 
 /** An abstract time of day with no associated timezone or date. */
 export interface Time {
-    /** Type discriminator. */
+    /** Type discriminator identifying the object as a `Time`. */
     readonly type: "time";
 
     /** The hours component of the time of day. Should be an integer in the
