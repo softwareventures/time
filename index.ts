@@ -136,7 +136,8 @@ export function equal(a: TimeOptions, b: TimeOptions): boolean {
 
 /** Tests if two {@link Time}s are equal.
  *
- * Alias of {@link equal}. */
+ * Alias of {@link equal}, useful for disambiguation from other equality
+ * functions. */
 export const timeEqual = equal;
 
 /** Tests if two {@link Time}s are equal.
@@ -148,7 +149,7 @@ export function equalFn(b: TimeOptions): (a: TimeOptions) => boolean {
 
 /** Tests if two {@link Time}s are equal.
  *
- * Alias of {@link equalFn}. */
+ * Curried variant of {@link timeEqual}. */
 export const timeEqualFn = equalFn;
 
 /** Tests if two {@link Time}s are not equal. */
@@ -158,7 +159,8 @@ export function notEqual(a: TimeOptions, b: TimeOptions): boolean {
 
 /** Tests if two {@link Time}s are not equal.
  *
- * Alias of {@link notEqual}. */
+ * Alias of {@link notEqual}, useful for disambiguation from other inequality
+ * functions. */
 export const timeNotEqual = notEqual;
 
 /** Tests if two {@link Time}s are not equal.
@@ -170,7 +172,7 @@ export function notEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
 
 /** Tests if two {@link Time}s are not equal.
  *
- * Alias of {@link notEqualFn}. */
+ * Curried variant of {@link timeNotEqual}. */
 export const timeNotEqualFn = notEqualFn;
 
 /** Compares two {@link Time}s.
@@ -197,7 +199,8 @@ export const compare: Comparator<TimeOptions> = (a, b) => {
  * Time `a` is considered to be `before` time `b` if time `a` is
  * earlier in the day.
  *
- * Alias of {@link compare}. */
+ * Alias of {@link compare}, useful for disambiguation from other comparison
+ * functions. */
 export const timeCompare = compare;
 
 /** Compares two {@link Time}s.
@@ -215,7 +218,7 @@ export function compareFn(b: TimeOptions): (a: TimeOptions) => Comparison {
  * Time `a` is considered to be `before` time `b` if time `a` is
  * earlier in the day.
  *
- * Alias of {@link compareFn}. */
+ * Curried variant of {@link timeCompare}. */
 export const timeCompareFn = compareFn;
 
 /** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`. */
@@ -225,7 +228,8 @@ export function before(a: TimeOptions, b: TimeOptions): boolean {
 
 /** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
  *
- * Alias of {@link before}. */
+ * Alias of {@link before}, useful for disambiguation from similar functions
+ * that operate on other date/time types. */
 export const timeBefore = before;
 
 /** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
@@ -237,7 +241,7 @@ export function beforeFn(b: TimeOptions): (a: TimeOptions) => boolean {
 
 /** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
  *
- * Alias of {@link beforeFn}. */
+ * Curried variant of {@link timeBefore}. */
 export const timeBeforeFn = beforeFn;
 
 /** Tests if {@link Time} `a` is equal to or earlier in the day than
@@ -249,7 +253,8 @@ export function beforeOrEqual(a: TimeOptions, b: TimeOptions): boolean {
 /** Tests if {@link Time} `a` is equal to or earlier in the day than
  * {@link Time} `b`.
  *
- * Alias of {@link beforeOrEqual}. */
+ * Alias of {@link beforeOrEqual}, useful for disambiguation from similar
+ * functions that operate on other date/time types. */
 export const timeBeforeOrEqual = beforeOrEqual;
 
 /** Tests if {@link Time} `a` is equal to or earlier in the day than
@@ -263,7 +268,7 @@ export function beforeOrEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
 /** Tests if {@link Time} `a` is equal to or earlier in the day than
  * {@link Time} `b`.
  *
- * Alias of {@link beforeOrEqualFn}. */
+ * Curried variant of {@link timeBeforeOrEqual}. */
 export const timeBeforeOrEqualFn = beforeOrEqualFn;
 
 /** Tests if {@link Time} `a` is later in the day than {@link Time} `b`. */
@@ -273,7 +278,8 @@ export function after(a: TimeOptions, b: TimeOptions): boolean {
 
 /** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
  *
- * Alias of {@link after}. */
+ * Alias of {@link after}, useful for disambiguation from similar functions
+ * that operate on other date/time types. */
 export const timeAfter = after;
 
 /** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
@@ -285,7 +291,7 @@ export function afterFn(b: TimeOptions): (a: TimeOptions) => boolean {
 
 /** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
  *
- * Alias of {@link afterFn}. */
+ * Curried variant of {@link timeAfter}. */
 export const timeAfterFn = afterFn;
 
 /** Returns the current time of day in UTC. */
@@ -301,7 +307,8 @@ export function nowUtc(): Time {
 
 /** Returns the current time of day in UTC.
  *
- * Alias of {@link nowUtc}. */
+ * Alias of {@link nowUtc}, useful for disambiguation from similar functions
+ * that operate on other date/time types. */
 export const timeNowUtc = nowUtc;
 
 /** Returns the current time of day in the device's local timezone. */
@@ -317,5 +324,6 @@ export function nowDeviceLocal(): Time {
 
 /** Returns the current time of day in the device's local timezone.
  *
- * Alias of {@link nowDeviceLocal}. */
+ * Alias of {@link nowDeviceLocal}, useful for disambiguation from similar
+ * functions that operate on other date/time types. */
 export const timeNowDeviceLocal = nowDeviceLocal;
