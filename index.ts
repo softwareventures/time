@@ -62,7 +62,6 @@ export function isValidTime(value: unknown): value is Time {
     return isTime(value) && isValid(value);
 }
 
-
 /** Tests if the specified {@link Time} object represents a valid time.
  *
  * Returns true if `hours` and `minutes` are integers within the expected
@@ -86,6 +85,35 @@ export function isValid(time: Time): boolean {
  *
  * Times returned by functions in this library are always valid. */
 export const isTimeValid = isValid;
+
+/**
+ * Asserts that the specified {@link Time} object represents a valid time.
+ *
+ * Times returned by functions in this library are always valid.
+ *
+ * @throws {Error} if any of the `hour` or `minute` fields are non-integers,
+ *   or if any of the `hour`, `minute` or `second` fields are outside the
+ *   valid range.
+ */
+export function validate(time: Time): void {
+    if (!isValid(time)) {
+        throw new Error("Invalid time");
+    }
+}
+
+/**
+ * Asserts that the specified {@link Time} object represents a valid time.
+ *
+ * Times returned by functions in this library are always valid.
+ *
+ * Alias of {@link validate}, useful for disambiguation from similar functions
+ * that operate on other types.
+ *
+ * @throws {Error} if any of the `hour` or `minute` fields are non-integers,
+ *   or if any of the `hour`, `minute` or `second` fields are outside the
+ *   valid range.
+ */
+export const validateTime = validate;
 
 /** Creates a {@link Time} with the specified options.
  *
