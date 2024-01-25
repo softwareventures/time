@@ -12,31 +12,31 @@ export interface Time {
     readonly type: "time";
 
     /** The hours component of the time of day. Should be an integer in the
-     * range 0-23. */
+     * range `0`-`23`. */
     readonly hours: number;
 
     /** The minutes component of the time of day. Should be an integer in the
-     * range 0-59. */
+     * range `0`-`59`. */
     readonly minutes: number;
 
-    /** The seconds component of the time of day. Should be in the range 0-60,
-     * inclusive of 0 but exclusive of 60. May be fractional to represent an
-     * instant in time with sub-second accuracy. */
+    /** The seconds component of the time of day. Should be in the range
+     * `0`-`60`, inclusive of `0` but exclusive of `60`. May be fractional
+     * to represent an instant in time with sub-second accuracy. */
     readonly seconds: number;
 }
 
 /** Options for creating a {@link Time}.
  *
- * An instance of {@link Time} may always be used in place of TimeOptions. */
+ * An instance of {@link Time} may always be used in place of `TimeOptions`. */
 export type TimeOptions = Partial<Time>;
 
-/** Tests if the specified value has the shape of a Time object.
+/** Tests if the specified value has the shape of a `Time` object.
  *
  * Returns true if the value is an object that has numeric `hours`, `minutes`
  * and `seconds` fields, and a `type` field set to `"time"`.
  *
- * The numeric fields may be non-integers or outside the expected range,
- * meaning that the object may not represent a valid time.
+ * The `hours`, `minutes` and `seconds` fields may be non-integers or outside
+ * the expected range, meaning that the object may not represent a valid time.
  *
  * To test if the object represents a valid time, call {@link isValid} or
  * {@link isTimeValid}. */
