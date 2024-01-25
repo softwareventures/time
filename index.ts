@@ -129,7 +129,8 @@ export function time(time: TimeOptions): Time {
     return fromReferenceSeconds(toReferenceSeconds(time));
 }
 
-/** Creates a {@link Time} with the specified options.
+/** Normalizes the specified {@link Time} object so that it represents a valid
+ * time.
  *
  * If any numeric components are unspecified, they default to zero.
  *
