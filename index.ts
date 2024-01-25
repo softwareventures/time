@@ -146,6 +146,23 @@ export function time(time: TimeOptions): Time {
  * @throws {Error} if any of the numeric components are non-finite. */
 export const normalize = time;
 
+/** Normalizes the specified {@link Time} object so that it represents a valid
+ * time.
+ *
+ * If any numeric components are unspecified, they default to zero.
+ *
+ * If any numeric components are outside the expected range, then they
+ * will roll over into the next larger component. If the time as a whole
+ * is outside the 24-hour range, then the time will wrap around by as
+ * many 24-hour periods as needed to put it in the valid range.
+ *
+ * Alias of {@link time}. Calling the function by this name instead might make
+ * code clearer in cases where the purpose is to normalize an existing `Time`
+ * object.
+ *
+ * @throws {Error} if any of the numeric components are non-finite. */
+export const normalizeTime = time;
+
 /** Converts the specified {@link Time} to a count of seconds since
  * midnight. */
 export function toReferenceSeconds(time: TimeOptions): number {
