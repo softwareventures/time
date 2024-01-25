@@ -62,6 +62,7 @@ export function isValidTime(value: unknown): value is Time {
     return isTime(value) && isValid(value);
 }
 
+
 /** Tests if the specified {@link Time} object represents a valid time.
  *
  * Returns true if `hours` and `minutes` are integers within the expected
@@ -70,6 +71,7 @@ export function isValidTime(value: unknown): value is Time {
  * Times returned by functions in this library are always valid. */
 export function isValid(time: Time): boolean {
     return (
+        (!hasProperty(time, "type") || time.type === "time") &&
         isIntegerInRange(time.hours, 0, 23) &&
         isIntegerInRange(time.minutes, 0, 59) &&
         time.seconds >= 0 &&
