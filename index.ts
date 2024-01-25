@@ -136,7 +136,7 @@ export function equal(a: TimeOptions, b: TimeOptions): boolean {
 
 /** Tests if two {@link Time}s are equal.
  *
- * Alias for {@link equal}. */
+ * Alias of {@link equal}. */
 export const timeEqual = equal;
 
 /** Tests if two {@link Time}s are equal.
@@ -148,7 +148,7 @@ export function equalFn(b: TimeOptions): (a: TimeOptions) => boolean {
 
 /** Tests if two {@link Time}s are equal.
  *
- * Alias for {@link equalFn}. */
+ * Alias of {@link equalFn}. */
 export const timeEqualFn = equalFn;
 
 /** Tests if two {@link Time}s are not equal. */
@@ -158,7 +158,7 @@ export function notEqual(a: TimeOptions, b: TimeOptions): boolean {
 
 /** Tests if two {@link Time}s are not equal.
  *
- * Alias for {@link notEqual}. */
+ * Alias of {@link notEqual}. */
 export const timeNotEqual = notEqual;
 
 /** Tests if two {@link Time}s are not equal.
@@ -170,7 +170,7 @@ export function notEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
 
 /** Tests if two {@link Time}s are not equal.
  *
- * Alias for {@link notEqualFn}. */
+ * Alias of {@link notEqualFn}. */
 export const timeNotEqualFn = notEqualFn;
 
 /** Compares two {@link Time}s.
@@ -197,7 +197,7 @@ export const compare: Comparator<TimeOptions> = (a, b) => {
  * Time `a` is considered to be `before` time `b` if time `a` is
  * earlier in the day.
  *
- * Alias for {@link compare}. */
+ * Alias of {@link compare}. */
 export const timeCompare = compare;
 
 /** Compares two {@link Time}s.
@@ -215,7 +215,7 @@ export function compareFn(b: TimeOptions): (a: TimeOptions) => Comparison {
  * Time `a` is considered to be `before` time `b` if time `a` is
  * earlier in the day.
  *
- * Alias for {@link compareFn}. */
+ * Alias of {@link compareFn}. */
 export const timeCompareFn = compareFn;
 
 /** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`. */
@@ -225,7 +225,7 @@ export function before(a: TimeOptions, b: TimeOptions): boolean {
 
 /** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
  *
- * Alias for {@link before}. */
+ * Alias of {@link before}. */
 export const timeBefore = before;
 
 /** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
@@ -237,7 +237,7 @@ export function beforeFn(b: TimeOptions): (a: TimeOptions) => boolean {
 
 /** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
  *
- * Alias for {@link beforeFn}. */
+ * Alias of {@link beforeFn}. */
 export const timeBeforeFn = beforeFn;
 
 /** Tests if {@link Time} `a` is equal to or earlier in the day than
@@ -249,7 +249,7 @@ export function beforeOrEqual(a: TimeOptions, b: TimeOptions): boolean {
 /** Tests if {@link Time} `a` is equal to or earlier in the day than
  * {@link Time} `b`.
  *
- * Alias for {@link beforeOrEqual}. */
+ * Alias of {@link beforeOrEqual}. */
 export const timeBeforeOrEqual = beforeOrEqual;
 
 /** Tests if {@link Time} `a` is equal to or earlier in the day than
@@ -263,7 +263,7 @@ export function beforeOrEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
 /** Tests if {@link Time} `a` is equal to or earlier in the day than
  * {@link Time} `b`.
  *
- * Alias for {@link beforeOrEqualFn}. */
+ * Alias of {@link beforeOrEqualFn}. */
 export const timeBeforeOrEqualFn = beforeOrEqualFn;
 
 /** Tests if {@link Time} `a` is later in the day than {@link Time} `b`. */
@@ -273,7 +273,7 @@ export function after(a: TimeOptions, b: TimeOptions): boolean {
 
 /** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
  *
- * Alias for {@link after}. */
+ * Alias of {@link after}. */
 export const timeAfter = after;
 
 /** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
@@ -285,7 +285,7 @@ export function afterFn(b: TimeOptions): (a: TimeOptions) => boolean {
 
 /** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
  *
- * Alias for {@link afterFn}. */
+ * Alias of {@link afterFn}. */
 export const timeAfterFn = afterFn;
 
 /** Returns the current time of day in UTC. */
@@ -301,7 +301,7 @@ export function nowUtc(): Time {
 
 /** Returns the current time of day in UTC.
  *
- * Alias for {@link nowUtc}. */
+ * Alias of {@link nowUtc}. */
 export const timeNowUtc = nowUtc;
 
 /** Returns the current time of day in the device's local timezone. */
@@ -317,5 +317,5 @@ export function nowDeviceLocal(): Time {
 
 /** Returns the current time of day in the device's local timezone.
  *
- * Alias for {@link nowDeviceLocal}. */
+ * Alias of {@link nowDeviceLocal}. */
 export const timeNowDeviceLocal = nowDeviceLocal;
