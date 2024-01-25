@@ -36,7 +36,7 @@ export type TimeOptions = Partial<Time>;
  * the expected range, meaning that the object may not represent a valid time.
  *
  * To test if the object represents a valid time, call {@link isValid} or
- * {@link isTimeValid}. */
+ * {@link isValidTime}. */
 export function isTime(value: unknown): value is Time {
     return (
         typeof value === "object" &&
@@ -50,6 +50,16 @@ export function isTime(value: unknown): value is Time {
         hasProperty(value, "seconds") &&
         typeof value.seconds === "number"
     );
+}
+
+/** Tests if the specified value is a {@link Time} object representing a valid
+ * time.
+ *
+ * Returns `true` if the value has the shape of a `Time` object, the `hours` and
+ * `minutes` fields are integers within the expected range, and `seconds`
+ * is a number within the expected range. */
+export function isValidTime(value: unknown): value is Time {
+    return isTime(value) && isValid(value);
 }
 
 /** Tests if the specified {@link Time} object represents a valid time.
