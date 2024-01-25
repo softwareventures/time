@@ -294,7 +294,7 @@ export function afterFn(b: TimeOptions): (a: TimeOptions) => boolean {
  * Curried variant of {@link timeAfter}. */
 export const timeAfterFn = afterFn;
 
-/** Returns the current time of day in UTC. */
+/** Returns the current time of day according to UTC. */
 export function nowUtc(): Time {
     const now = new JsDate();
     return {
@@ -305,13 +305,14 @@ export function nowUtc(): Time {
     };
 }
 
-/** Returns the current time of day in UTC.
+/** Returns the current time of day according to UTC.
  *
  * Alias of {@link nowUtc}, useful for disambiguation from similar functions
  * that operate on other date/time types. */
 export const timeNowUtc = nowUtc;
 
-/** Returns the current time of day in the device's local timezone. */
+/** Returns the current time of day according to the device's local
+ * timezone. */
 export function nowDeviceLocal(): Time {
     const now = new JsDate();
     return {
@@ -322,7 +323,7 @@ export function nowDeviceLocal(): Time {
     };
 }
 
-/** Returns the current time of day in the device's local timezone.
+/** Returns the current time of day according to the device's local timezone.
  *
  * Alias of {@link nowDeviceLocal}, useful for disambiguation from similar
  * functions that operate on other date/time types. */
