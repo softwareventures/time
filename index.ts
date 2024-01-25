@@ -55,7 +55,7 @@ export function isTime(value: unknown): value is Time {
     );
 }
 
-/** Tests if the specified Time object represents a valid time.
+/** Tests if the specified {@link Time} object represents a valid time.
  *
  * Returns true if `hours` and `minutes` are integers within the expected
  * range, and `seconds` is a number within the expected range.
@@ -70,7 +70,7 @@ export function isValid(time: Time): boolean {
     );
 }
 
-/** Tests if the specified Time object represents a valid time.
+/** Tests if the specified {@link Time} object represents a valid time.
  *
  * Returns true if `hours` and `minutes` are integers within the expected
  * range, and `seconds` is a number within the expected range.
@@ -78,7 +78,7 @@ export function isValid(time: Time): boolean {
  * Times returned by functions in this library are always valid. */
 export const isTimeValid = isValid;
 
-/** Creates a Time with the specified options.
+/** Creates a {@link Time} with the specified options.
  *
  * If any numeric components are unspecified, they default to zero.
  *
@@ -92,7 +92,7 @@ export function time(time: TimeOptions): Time {
     return fromReferenceSeconds(toReferenceSeconds(time));
 }
 
-/** Creates a Time with the specified options.
+/** Creates a {@link Time} with the specified options.
  *
  * If any numeric components are unspecified, they default to zero.
  *
@@ -104,7 +104,8 @@ export function time(time: TimeOptions): Time {
  * @throws {Error} if any of the numeric components are non-finite. */
 export const normalize = time;
 
-/** Converts the specified Time to a count of seconds since midnight. */
+/** Converts the specified {@link Time} to a count of seconds since
+ * midnight. */
 export function toReferenceSeconds(time: TimeOptions): number {
     const hours = time.hours ?? 0;
     const minutes = time.minutes ?? 0;
@@ -113,7 +114,7 @@ export function toReferenceSeconds(time: TimeOptions): number {
     return (86400 + ((hours * 3600 + minutes * 60 + seconds) % 86400)) % 86400;
 }
 
-/** Creates a Time corresponding to the specified count of seconds
+/** Creates a {@link Time} corresponding to the specified count of seconds
  * since midnight.
  *
  * @throws {Error} if seconds is not a finite value. */
@@ -128,51 +129,51 @@ export function fromReferenceSeconds(seconds: number): Time {
     return {type: "time", hours, minutes, seconds: seconds3};
 }
 
-/** Tests if two Times are equal. */
+/** Tests if two {@link Time}s are equal. */
 export function equal(a: TimeOptions, b: TimeOptions): boolean {
     return toReferenceSeconds(a) === toReferenceSeconds(b);
 }
 
-/** Tests if two Times are equal.
+/** Tests if two {@link Time}s are equal.
  *
  * Alias for {@link equal}. */
 export const timeEqual = equal;
 
-/** Tests if two Times are equal.
+/** Tests if two {@link Time}s are equal.
  *
  * Curried variant of {@link equal}. */
 export function equalFn(b: TimeOptions): (a: TimeOptions) => boolean {
     return a => equal(a, b);
 }
 
-/** Tests if two Times are equal.
+/** Tests if two {@link Time}s are equal.
  *
  * Alias for {@link equalFn}. */
 export const timeEqualFn = equalFn;
 
-/** Tests if two Times are not equal. */
+/** Tests if two {@link Time}s are not equal. */
 export function notEqual(a: TimeOptions, b: TimeOptions): boolean {
     return toReferenceSeconds(a) !== toReferenceSeconds(b);
 }
 
-/** Tests if two Times are not equal.
+/** Tests if two {@link Time}s are not equal.
  *
  * Alias for {@link notEqual}. */
 export const timeNotEqual = notEqual;
 
-/** Tests if two Times are not equal.
+/** Tests if two {@link Time}s are not equal.
  *
  * Curried variant of {@link notEqual}. */
 export function notEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
     return a => notEqual(a, b);
 }
 
-/** Tests if two Times are not equal.
+/** Tests if two {@link Time}s are not equal.
  *
  * Alias for {@link notEqualFn}. */
 export const timeNotEqualFn = notEqualFn;
 
-/** Compares two Times.
+/** Compares two {@link Time}s.
  *
  * Time `a` is considered to be `before` time `b` if time `a` is
  * earlier in the day. */
@@ -191,7 +192,7 @@ export const compare: Comparator<TimeOptions> = (a, b) => {
     }
 };
 
-/** Compares two Times.
+/** Compares two {@link Time}s.
  *
  * Time `a` is considered to be `before` time `b` if time `a` is
  * earlier in the day.
@@ -199,7 +200,7 @@ export const compare: Comparator<TimeOptions> = (a, b) => {
  * Alias for {@link compare}. */
 export const timeCompare = compare;
 
-/** Compares two Times.
+/** Compares two {@link Time}s.
  *
  * Time `a` is considered to be `before` time `b` if time `a` is
  * earlier in the day.
@@ -209,7 +210,7 @@ export function compareFn(b: TimeOptions): (a: TimeOptions) => Comparison {
     return a => compare(a, b);
 }
 
-/** Compares two Times.
+/** Compares two {@link Time}s.
  *
  * Time `a` is considered to be `before` time `b` if time `a` is
  * earlier in the day.
@@ -217,68 +218,72 @@ export function compareFn(b: TimeOptions): (a: TimeOptions) => Comparison {
  * Alias for {@link compareFn}. */
 export const timeCompareFn = compareFn;
 
-/** Tests if Time `a` is earlier in the day than Time `b`. */
+/** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`. */
 export function before(a: TimeOptions, b: TimeOptions): boolean {
     return toReferenceSeconds(a) < toReferenceSeconds(b);
 }
 
-/** Tests if Time `a` is earlier in the day than Time `b`.
+/** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
  *
  * Alias for {@link before}. */
 export const timeBefore = before;
 
-/** Tests if Time `a` is earlier in the day than Time `b`.
+/** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
  *
  * Curried variant of {@link before}. */
 export function beforeFn(b: TimeOptions): (a: TimeOptions) => boolean {
     return a => before(a, b);
 }
 
-/** Tests if Time `a` is earlier in the day than Time `b`.
+/** Tests if {@link Time} `a` is earlier in the day than {@link Time} `b`.
  *
  * Alias for {@link beforeFn}. */
 export const timeBeforeFn = beforeFn;
 
-/** Tests if Time `a` is equal to or earlier in the day than Time `b`. */
+/** Tests if {@link Time} `a` is equal to or earlier in the day than
+ * {@link Time} `b`. */
 export function beforeOrEqual(a: TimeOptions, b: TimeOptions): boolean {
     return toReferenceSeconds(a) <= toReferenceSeconds(b);
 }
 
-/** Tests if Time `a` is equal to or earlier in the day than Time `b`.
+/** Tests if {@link Time} `a` is equal to or earlier in the day than
+ * {@link Time} `b`.
  *
  * Alias for {@link beforeOrEqual}. */
 export const timeBeforeOrEqual = beforeOrEqual;
 
-/** Tests if Time `a` is equal to or earlier in the day than Time `b`.
+/** Tests if {@link Time} `a` is equal to or earlier in the day than
+ * {@link Time} `b`.
  *
  * Curried variant of {@link beforeOrEqual}. */
 export function beforeOrEqualFn(b: TimeOptions): (a: TimeOptions) => boolean {
     return a => beforeOrEqual(a, b);
 }
 
-/** Tests if Time `a` is equal to or earlier in the day than Time `b`.
+/** Tests if {@link Time} `a` is equal to or earlier in the day than
+ * {@link Time} `b`.
  *
  * Alias for {@link beforeOrEqualFn}. */
 export const timeBeforeOrEqualFn = beforeOrEqualFn;
 
-/** Tests if Time `a` is later in the day than Time `b`. */
+/** Tests if {@link Time} `a` is later in the day than {@link Time} `b`. */
 export function after(a: TimeOptions, b: TimeOptions): boolean {
     return toReferenceSeconds(a) > toReferenceSeconds(b);
 }
 
-/** Tests if Time `a` is later in the day than Time `b`.
+/** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
  *
  * Alias for {@link after}. */
 export const timeAfter = after;
 
-/** Tests if Time `a` is later in the day than Time `b`.
+/** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
  *
  * Curried variant of {@link after}. */
 export function afterFn(b: TimeOptions): (a: TimeOptions) => boolean {
     return a => after(a, b);
 }
 
-/** Tests if Time `a` is later in the day than Time `b`.
+/** Tests if {@link Time} `a` is later in the day than {@link Time} `b`.
  *
  * Alias for {@link afterFn}. */
 export const timeAfterFn = afterFn;
