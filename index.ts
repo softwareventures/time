@@ -4,6 +4,7 @@ import {hasProperty} from "unknown";
 import isIntegerInRange from "is-integer-in-range";
 import type {Comparator} from "@softwareventures/ordered";
 import {Comparison} from "@softwareventures/ordered";
+import {mapOptional} from "@softwareventures/nullable";
 import {JsDate} from "./js-date";
 
 /** An abstract time of day with no associated timezone or date. */
@@ -387,3 +388,46 @@ export function nowDeviceLocal(): Time {
  * Alias of {@link nowDeviceLocal}, useful for disambiguation from similar
  * functions that operate on other date/time types. */
 export const timeNowDeviceLocal = nowDeviceLocal;
+
+/**
+ * Parses a {@link Time} from text in ISO 8601 format.
+ *
+ * The ISO 8601 text must not specify a time zone offset.
+ *
+ * If the specified text is not a valid ISO 8601 time then this function
+ * returns `null`.
+ *
+ * Both extended `Thh:mm:ss.sss` and basic `Thhmmss.sss` ISO 8601 formats are
+ * accepted, and the initial `T` is optional in both cases. The seconds field
+ * may be omitted, and the minutes field may also be omitted if the seconds
+ * field is omitted. Omitted fields default to zero.
+ */
+export function parseIso8601(text: string): Time | null {
+    const match = /^T?(\d{2})(?::?(\d{2})(?::?(\d{2}(?:\.\d*)?))?)?$/u.exec(text);
+    if (match == null || match[1] == null) {
+        return null;
+    }
+
+    const hours = parseInt(match[1], 10);
+    const minutes = mapOptional(match[2], text => parseInt(text, 10)) ?? 0;
+    const seconds = mapOptional(match[3], text => parseFloat(text)) ?? 0;
+
+    return {type: "time", hours, minutes, seconds};
+}
+
+/**
+ * Parses a {@link Time} from text in ISO 8601 format.
+ *
+ * The ISO 8601 text must not specify a time zone offset.
+ *
+ * If the specified text is not a valid ISO 8601 time then this function
+ * returns `null`.
+ *
+ * Both extended `Thh:mm:ss.sss` and basic `Thhmmss.sss` ISO 8601 formats are
+ * accepted, and the initial `T` is optional in both cases. The seconds field
+ * may be omitted, and the minutes field may also be omitted if the seconds
+ * field is omitted. Omitted fields default to zero.
+ *
+ * Alias of {@link parseIso8601}, useful for disambiguation from similar
+ * functions that operate on other date/time types. */
+export const parseTimeIso8601 = parseIso8601;

@@ -763,6 +763,13 @@
   dependencies:
     tslib "2.4.1"
 
+"@softwareventures/nullable@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@softwareventures/nullable/-/nullable-3.2.0.tgz#b4e1b570ba0086eeeb9350ebd25db2533e3dfe88"
+  integrity sha512-xPtUK3GJkrqvOyy14ds5KAJgnB0bbd549ztx6kDpIqk27U0W2Vg1gUBMagmdcRQE+PGFFRimd1C8RVCCizF6Ww==
+  dependencies:
+    tslib "2.6.2"
+
 "@softwareventures/ordered@^1.0.0 || ^2.0.0", "@softwareventures/ordered@^1.1.0 || ^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@softwareventures/ordered/-/ordered-2.0.0.tgz#feaee7148f6a447f96adaa169d27fd4962b4e3d4"
