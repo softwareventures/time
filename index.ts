@@ -404,7 +404,7 @@ export const timeNowDeviceLocal = nowDeviceLocal;
  */
 export function parseIso8601(text: string): Time | null {
     const match = /^T?(\d{2})(?::?(\d{2})(?::?(\d{2}(?:\.\d*)?))?)?$/u.exec(text);
-    if (match == null || match[1] == null) {
+    if (match?.[1] == null) {
         return null;
     }
 
