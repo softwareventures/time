@@ -198,6 +198,15 @@ export function fromReferenceSeconds(seconds: number): Time {
     return {type: "Time", hours, minutes, seconds: seconds3};
 }
 
+/** Creates a {@link Time} corresponding to the specified count of seconds
+ * since midnight.
+ *
+ * Alias of {@link fromReferenceSeconds}, useful for disambiguation from
+ * similar functions that operate on other types.
+ *
+ * @throws {Error} if seconds is not a finite value. */
+export const timeFromReferenceSeconds = fromReferenceSeconds;
+
 /** Tests if two {@link Time}s are equal. */
 export function equal(a: TimeOptions, b: TimeOptions): boolean {
     return toReferenceSeconds(a) === toReferenceSeconds(b);
