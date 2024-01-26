@@ -12,7 +12,7 @@ import {JsDate} from "./js-date";
 /** An abstract time of day with no associated timezone or date. */
 export interface Time {
     /** Type discriminator identifying the object as a `Time`. */
-    readonly type: "time";
+    readonly type: "Time";
 
     /** The hours component of the time of day. Should be an integer in the
      * range `0`-`23`. */
@@ -45,7 +45,7 @@ export function isTime(value: unknown): value is Time {
         typeof value === "object" &&
         value != null &&
         hasProperty(value, "type") &&
-        value.type === "time" &&
+        value.type === "Time" &&
         hasProperty(value, "hours") &&
         typeof value.hours === "number" &&
         hasProperty(value, "minutes") &&
@@ -73,7 +73,7 @@ export function isValidTime(value: unknown): value is Time {
  * Times returned by functions in this library are always valid. */
 export function isValid(time: Time): boolean {
     return (
-        (!hasProperty(time, "type") || time.type === "time") &&
+        (!hasProperty(time, "type") || time.type === "Time") &&
         isIntegerInRange(time.hours, 0, 23) &&
         isIntegerInRange(time.minutes, 0, 59) &&
         time.seconds >= 0 &&
@@ -188,7 +188,7 @@ export function fromReferenceSeconds(seconds: number): Time {
     const seconds2 = seconds - hours * 3600;
     const minutes = Math.floor(seconds2 / 60);
     const seconds3 = seconds2 - minutes * 60;
-    return {type: "time", hours, minutes, seconds: seconds3};
+    return {type: "Time", hours, minutes, seconds: seconds3};
 }
 
 /** Tests if two {@link Time}s are equal. */
@@ -360,7 +360,7 @@ export const timeAfterFn = afterFn;
 export function nowUtc(): Time {
     const now = new JsDate();
     return {
-        type: "time",
+        type: "Time",
         hours: now.getUTCHours(),
         minutes: now.getUTCMinutes(),
         seconds: now.getUTCSeconds() + 0.001 * now.getUTCMilliseconds()
@@ -378,7 +378,7 @@ export const timeNowUtc = nowUtc;
 export function nowDeviceLocal(): Time {
     const now = new JsDate();
     return {
-        type: "time",
+        type: "Time",
         hours: now.getHours(),
         minutes: now.getMinutes(),
         seconds: now.getSeconds() + 0.001 * now.getMilliseconds()
@@ -414,7 +414,7 @@ export function parseIso8601(text: string): Time | null {
     const minutes = mapOptional(match[2], text => parseInt(text, 10)) ?? 0;
     const seconds = mapOptional(match[3], text => parseFloat(text)) ?? 0;
 
-    return {type: "time", hours, minutes, seconds};
+    return {type: "Time", hours, minutes, seconds};
 }
 
 /**
