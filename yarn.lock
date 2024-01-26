@@ -1037,7 +1037,7 @@ __metadata:
     prettier: "npm:2.8.8"
     semantic-release: "npm:19.0.5"
     ts-node: "npm:10.9.2"
-    tslib: "npm:^1.9.3 || ^2.0.0 || ^2.1.0"
+    tslib: "npm:^2.1.0"
     typescript: "npm:5.3.3"
     unknown: "npm:^0.2.5"
   languageName: unknown
