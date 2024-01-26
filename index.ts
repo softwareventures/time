@@ -176,6 +176,13 @@ export function toReferenceSeconds(time: TimeOptions): number {
     return (86400 + ((hours * 3600 + minutes * 60 + seconds) % 86400)) % 86400;
 }
 
+/** Converts the specified {@link Time} to a count of seconds since
+ * midnight.
+ *
+ * Alias of {@link toReferenceSeconds}, useful for disambiguation from similar
+ * functions that operate on other types. */
+export const timeToReferenceSeconds = toReferenceSeconds;
+
 /** Creates a {@link Time} corresponding to the specified count of seconds
  * since midnight.
  *
