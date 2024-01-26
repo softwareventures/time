@@ -412,7 +412,7 @@ export function parseIso8601(text: string): Time | null {
 
     const hours = parseInt(match[1], 10);
     const minutes = mapOptional(match[2], text => parseInt(text, 10)) ?? 0;
-    const seconds = mapOptional(match[3], text => parseFloat(text)) ?? 0;
+    const seconds = mapOptional(match[3], text => parseFloat(text.replace(",", "."))) ?? 0;
 
     return {type: "time", hours, minutes, seconds};
 }
