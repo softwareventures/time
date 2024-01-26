@@ -482,3 +482,18 @@ export const formatIso8601 = format.iso8601;
  *
  * For other formats, see `@softwareventures/format-time`. */
 export const formatTimeIso8601 = format.iso8601;
+
+/** Formats the specified {@link Time} as ISO 8601 extended, rounded down to
+ * the next lower second, and with no leading `"T"`.
+ *
+ * This format is intended to be reasonable for display to humans. */
+export const formatHumanIso8601 = format.humanIso8601;
+
+/** Formats the specified {@link Time} as ISO 8601 extended, rounded down to
+ * the next lower second, and with no leading `"T"`.
+ *
+ * This format is intended to be reasonable for display to humans.
+ *
+ * Alias of {@link formatHumanIso8601}, useful for disambiguation from similar
+ * functions that operate on other date/time types. */
+export const formatTimeHumanIso8601 = format.humanIso8601;
