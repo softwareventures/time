@@ -1017,7 +1017,7 @@ __metadata:
     "@softwareventures/prettier-config": "npm:4.0.0"
     "@softwareventures/semantic-release-config": "npm:4.0.0"
     "@softwareventures/tsconfig": "npm:7.1.0"
-    "@types/inquirer": "npm:^9"
+    "@types/inquirer": "npm:9.0.7"
     "@types/is-integer": "npm:1.0.2"
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
     "@typescript-eslint/parser": "npm:5.62.0"
@@ -1086,7 +1086,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/inquirer@npm:^9":
+"@types/inquirer@npm:9.0.7":
   version: 9.0.7
   resolution: "@types/inquirer@npm:9.0.7"
   dependencies:
