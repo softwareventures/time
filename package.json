@@ -14,8 +14,10 @@
   "scripts": {
     "commit": "cz",
     "fix": "tsc --noEmit && eslint . --fix && prettier --write .",
+    "postinstall": "husky install",
     "lint": "tsc --noEmit && eslint . && prettier --check .",
-    "prepare": "husky install && tsc",
+    "prepack": "tsc && pinst --disable",
+    "postpack": "pinst --enable",
     "test": "ava"
   },
   "sideEffects": false,
@@ -79,5 +81,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }
