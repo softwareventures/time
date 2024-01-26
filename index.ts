@@ -421,7 +421,7 @@ export const timeNowDeviceLocal = nowDeviceLocal;
  * field is omitted. Omitted fields default to zero.
  */
 export function parseIso8601(text: string): Time | null {
-    const match = /^T?(\d{2})(?::?(\d{2})(?::?(\d{2}(?:\.\d*)?))?)?$/u.exec(text);
+    const match = /^T?(\d{2})(?::?(\d{2})(?::?(\d{2}(?:\.\d*)?))?)?$/iu.exec(text);
     if (match?.[1] == null) {
         return null;
     }
