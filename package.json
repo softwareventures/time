@@ -22,7 +22,7 @@
   },
   "sideEffects": false,
   "engines": {
-    "node": "^14 || ^16 || ^18 || >=19"
+    "node": "^18 || >=20"
   },
   "dependencies": {
     "@softwareventures/format-time": "^1.0.0",
