@@ -2,6 +2,8 @@
 
 import {hasProperty} from "unknown";
 import isIntegerInRange from "is-integer-in-range";
+import * as format from "@softwareventures/format-time";
+import type {TimeFormatter} from "@softwareventures/format-time";
 import type {Comparator} from "@softwareventures/ordered";
 import {Comparison} from "@softwareventures/ordered";
 import {mapOptional} from "@softwareventures/nullable";
@@ -431,3 +433,52 @@ export function parseIso8601(text: string): Time | null {
  * Alias of {@link parseIso8601}, useful for disambiguation from similar
  * functions that operate on other date/time types. */
 export const parseTimeIso8601 = parseIso8601;
+
+export type {Iso8601Options, TimeFormatter} from "@softwareventures/format-time";
+
+/** Returns a {@link TimeFormatter} that formats the specified {@link Time} as
+ * ISO 8601, with the specified options.
+ *
+ * By default, the {@link Time} is formatted in the "extended" ISO 8601 format,
+ * with the leading `"T"`, and without rounding, for example
+ * `"T11:57:23.723615"`.
+ *
+ * If the `format` option is set to `"basic"`, then the colons are omitted,
+ * for example `"T115723.723615"`.
+ *
+ * If the `round` option is set to `"seconds"`, then the time is rounded down
+ * to the next lower second, for example `"T11:57:23"`.
+ *
+ * If the `round` option is set to `"ms"`, then the time is rounded down to
+ * the next lower millisecond, for example `"T11:57:23.723"`.
+ *
+ * If the `leadingT` option is set to `false`, then the leading `"T"` is
+ * omitted, for example `"11:57:23.363215"`.
+ *
+ * For other formats, see `@softwareventures/format-time`. */
+export const formatIso8601 = format.iso8601;
+
+/** Returns a {@link TimeFormatter} that formats the specified {@link Time} as
+ * ISO 8601, with the specified options.
+ *
+ * By default, the {@link Time} is formatted in the "extended" ISO 8601 format,
+ * with the leading `"T"`, and without rounding, for example
+ * `"T11:57:23.723615"`.
+ *
+ * If the `format` option is set to `"basic"`, then the colons are omitted,
+ * for example `"T115723.723615"`.
+ *
+ * If the `round` option is set to `"seconds"`, then the time is rounded down
+ * to the next lower second, for example `"T11:57:23"`.
+ *
+ * If the `round` option is set to `"ms"`, then the time is rounded down to
+ * the next lower millisecond, for example `"T11:57:23.723"`.
+ *
+ * If the `leadingT` option is set to `false`, then the leading `"T"` is
+ * omitted, for example `"11:57:23.363215"`.
+ *
+ * Alias of {@link formatIso8601}, useful for disambiguation from similar
+ * functions that operate on other date/time types.
+ *
+ * For other formats, see `@softwareventures/format-time`. */
+export const formatTimeIso8601 = format.iso8601;
